@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+</head>
+<body>
+<div class="toast-container"></div>
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Deliver to: <a href="#">Dhaka</a></span><span class="topbar-divider">|</span><span>📞 16345</span><span class="topbar-divider">|</span><span>Free delivery above ৳1000</span></div><div class="topbar-right"><a href="seller.html">Sell on Dadar</a><span class="topbar-divider">|</span><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Login</a><span class="topbar-divider">|</span><a href="register.html">Register</a></div></div></div>
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option><option>Beauty</option><option>Groceries</option><option>Home</option></select><input type="text" class="search-input" placeholder="Search products, brands and more..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="notif-dropdown-wrapper"><div class="header-action-btn notif-btn"><span>🔔</span><span>Alerts</span><span class="badge">3</span></div><div class="notif-dropdown"><div class="notif-header"><h4>Notifications</h4><span class="notif-mark-all">Mark all read</span></div><div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics!</p><div class="time">2 min ago</div></div></div><div class="notif-footer"><a href="#">View all notifications</a></div></div></div><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="account-dropdown-wrapper"><div class="header-action-btn account-btn"><span>👤</span><span>Account</span></div><div class="account-dropdown"><div class="account-dropdown-header"><div class="name">Hello, Guest</div><div class="email">Sign in for best experience</div></div><div class="account-dropdown-links"><a href="login.html"><i>🔑</i> Login / Register</a><a href="account.html"><i>👤</i> My Account</a><a href="account.html"><i>📦</i> My Orders</a><a href="wishlist.html"><i>❤️</i> Wishlist</a><a href="tracking.html"><i>🗺️</i> Track Order</a></div><div class="account-dropdown-footer"><div class="account-dropdown-links"><a href="seller.html"><i>🏪</i> Become a Seller</a></div></div></div></div></div></div></header>
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active" data-cat="0"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item" data-cat="1"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item" data-cat="2"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item" data-cat="3"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item" data-cat="4"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div><div class="mega-menu-item" data-cat="5"><div class="mega-menu-item-left"><i>📚</i> Books</div> ›</div><div class="mega-menu-item" data-cat="6"><div class="mega-menu-item-left"><i>⚽</i> Sports</div> ›</div><div class="mega-menu-item" data-cat="7"><div class="mega-menu-item-left"><i>🧸</i> Toys & Baby</div> ›</div><div class="mega-menu-item" data-cat="8"><div class="mega-menu-item-left"><i>🚗</i> Automotive</div> ›</div><div class="mega-menu-item" data-cat="9"><div class="mega-menu-item-left"><i>🌿</i> Health</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics">Samsung</a><a href="category.html?cat=electronics">iPhone</a><a href="category.html?cat=electronics">Xiaomi</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics">Laptops</a><a href="category.html?cat=electronics">Tablets</a></div><div class="mega-sub-group"><h5>Audio & TV</h5><a href="category.html?cat=electronics">Headphones</a><a href="category.html?cat=electronics">Smart TVs</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Men's</h5><a href="category.html?cat=fashion">T-Shirts</a><a href="category.html?cat=fashion">Jeans</a></div><div class="mega-sub-group"><h5>Women's</h5><a href="category.html?cat=fashion">Sarees</a><a href="category.html?cat=fashion">Dresses</a></div><div class="mega-sub-group"><h5>Footwear</h5><a href="category.html?cat=fashion">Shoes</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Skincare</h5><a href="category.html?cat=beauty">Face Wash</a><a href="category.html?cat=beauty">Moisturizer</a></div><div class="mega-sub-group"><h5>Makeup</h5><a href="category.html?cat=beauty">Lipstick</a><a href="category.html?cat=beauty">Foundation</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Furniture</h5><a href="category.html?cat=home">Sofas</a><a href="category.html?cat=home">Beds</a></div><div class="mega-sub-group"><h5>Kitchen</h5><a href="category.html?cat=home">Appliances</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Beverages</h5><a href="category.html?cat=groceries">Tea & Coffee</a></div><div class="mega-sub-group"><h5>Snacks</h5><a href="category.html?cat=groceries">Chips</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Books</h5><a href="category.html?cat=books">Academic</a><a href="category.html?cat=books">Fiction</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Sports</h5><a href="category.html?cat=sports">Cricket</a><a href="category.html?cat=sports">Football</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Toys</h5><a href="category.html?cat=toys">Action Figures</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Automotive</h5><a href="category.html?cat=automotive">Accessories</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Health</h5><a href="category.html?cat=health">Supplements</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link nav-link-hot">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a><a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a><a href="category.html?cat=groceries" class="nav-link">🥕 Groceries</a><a href="blog.html" class="nav-link">📝 Blog</a></div></div></nav>
+<div class="page-hero"><div class="container"><div class="page-hero-content"><h1>📞 Contact Us</h1><div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Contact</span></div></div></div></div>
+
+<div class="container" style="padding:40px var(--container-padding);">
+  <div class="contact-layout">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <div>
+        <h2 style="font-size:22px;font-weight:800;margin-bottom:8px;">We're Here to Help</h2>
+        <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;margin-bottom:28px;">Have a question, concern, or just want to say hello? Our friendly support team is here for you. We typically respond within 2 hours during business hours.</p>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📞</div>
+        <div><h4>Customer Hotline</h4><p>16345 (Local)<br/>+880 2-9876543 (International)<br/>Mon–Sat: 9AM–10PM | Sun: 10AM–8PM</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">✉️</div>
+        <div><h4>Email Support</h4><p>support@dadarshop.com<br/>sellers@dadarshop.com (Sellers)<br/>press@dadarshop.com (Media)</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">💬</div>
+        <div><h4>Live Chat</h4><p>Available on our website and mobile app<br/>Mon–Sat: 9AM–10PM<br/>Average response time: 2 minutes</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📍</div>
+        <div><h4>Head Office</h4><p>Dadar Shop Limited<br/>Level 12, Bashundhara City Complex<br/>Panthapath, Dhaka 1215<br/>Bangladesh</p></div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">🏪</div>
+        <div><h4>Warehouse & Returns</h4><p>Dadar Shop Fulfillment Center<br/>Uttara Sector 10, Dhaka 1230<br/>Open: 8AM–6PM (Mon–Sat)</p></div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;">Follow Us on Social Media</h4>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="#" style="display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);padding:8px 14px;border-radius:var(--radius);font-size:12px;font-weight:600;color:var(--text-primary);transition:var(--transition);">📘 Facebook</a>
+          <a href="#" style="display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);padding:8px 14px;border-radius:var(--radius);font-size:12px;font-weight:600;color:var(--text-primary);transition:var(--transition);">📸 Instagram</a>
+          <a href="#" style="display:flex;align-items:center;gap:8px;background:white;border:1px solid var(--border);padding:8px 14px;border-radius:var(--radius);font-size:12px;font-weight:600;color:var(--text-primary);transition:var(--transition);">▶️ YouTube</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;">
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:6px;">Send Us a Message</h3>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px;">Fill out the form and we'll get back to you within 24 hours.</p>
+      <form class="contact-form">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-control" placeholder="Your first name" required/></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-control" placeholder="Your last name" required/></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address</label><div class="input-group-icon"><i>📧</i><input type="email" class="form-control" placeholder="your@email.com" required/></div></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><div class="input-group-icon"><i>📞</i><input type="tel" class="form-control" placeholder="+880 17XXXXXXXX"/></div></div>
+        <div class="form-group"><label class="form-label">Subject</label><select class="form-control form-select"><option>Select a topic</option><option>Order Issue</option><option>Return & Refund</option><option>Payment Problem</option><option>Product Inquiry</option><option>Seller Query</option><option>Partnership</option><option>Technical Issue</option><option>Other</option></select></div>
+        <div class="form-group"><label class="form-label">Order ID (if applicable)</label><input class="form-control" placeholder="e.g. #DS-24891"/></div>
+        <div class="form-group"><label class="form-label">Your Message</label><textarea class="form-control" rows="5" placeholder="Describe your issue or question in detail..." required></textarea></div>
+        <div class="form-group"><label class="form-label">Attachments (optional)</label><input type="file" class="form-control" multiple accept="image/*"/><div class="form-hint">Upload screenshots or photos (max 5MB each)</div></div>
+        <div class="form-check" style="margin-bottom:20px;"><input type="checkbox" id="privacy" required><label for="privacy">I agree to Dadar Shop's <a href="#" style="color:var(--primary)">Privacy Policy</a></label></div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">📨 Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Map Placeholder -->
+  <div style="background:linear-gradient(135deg,#e6f3ff,#cce5ff);border-radius:var(--radius-lg);height:240px;display:flex;align-items:center;justify-content:center;margin-top:40px;border:1px solid var(--border);">
+    <div style="text-align:center;"><div style="font-size:48px;margin-bottom:12px;">🗺️</div><div style="font-size:16px;font-weight:700;color:var(--text-primary);">Dadar Shop Head Office</div><div style="font-size:13px;color:var(--text-muted);">Level 12, Bashundhara City, Panthapath, Dhaka 1215</div></div>
+  </div>
+</div>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+  <button class="chat-trigger"><span>💬</span><span class="badge" style="background:var(--success);">1</span></button>
+  <div class="chat-popup">
+    <div class="chat-popup-header"><h4>💬 Dadar Support</h4><button class="chat-close">✕</button></div>
+    <div class="chat-body"><div class="chat-msg bot"><div class="chat-msg-avatar">🤖</div><div class="chat-bubble">Hello! Welcome to Dadar Shop. How can I help?</div></div></div>
+    <div class="chat-input-row"><input placeholder="Type your message..."/><button class="chat-send">➤</button></div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home & Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>🛒 Cart (<span class="cart-count">0</span>)</h3><button class="cart-close-btn" onclick="closeCart()">✕</button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div><div class="cart-summary-row"><span>Delivery:</span><span>৳60</span></div><div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div><button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button><a href="cart.html" style="display:block;text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;">View Full Cart</a></div></div>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span><span class="mobile-cart-count">0</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

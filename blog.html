@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+</head>
+<body>
+<div class="toast-container"></div>
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Deliver to: <a href="#">Dhaka</a></span><span class="topbar-divider">|</span><span>📞 16345</span><span class="topbar-divider">|</span><span>Free delivery above ৳1000</span></div><div class="topbar-right"><a href="seller.html">Sell on Dadar</a><span class="topbar-divider">|</span><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Login</a><span class="topbar-divider">|</span><a href="register.html">Register</a></div></div></div>
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option><option>Beauty</option><option>Groceries</option><option>Home</option></select><input type="text" class="search-input" placeholder="Search products, brands and more..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="notif-dropdown-wrapper"><div class="header-action-btn notif-btn"><span>🔔</span><span>Alerts</span><span class="badge">3</span></div><div class="notif-dropdown"><div class="notif-header"><h4>Notifications</h4><span class="notif-mark-all">Mark all read</span></div><div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics!</p><div class="time">2 min ago</div></div></div><div class="notif-footer"><a href="#">View all notifications</a></div></div></div><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="account-dropdown-wrapper"><div class="header-action-btn account-btn"><span>👤</span><span>Account</span></div><div class="account-dropdown"><div class="account-dropdown-header"><div class="name">Hello, Guest</div><div class="email">Sign in for best experience</div></div><div class="account-dropdown-links"><a href="login.html"><i>🔑</i> Login / Register</a><a href="account.html"><i>👤</i> My Account</a><a href="account.html"><i>📦</i> My Orders</a><a href="wishlist.html"><i>❤️</i> Wishlist</a><a href="tracking.html"><i>🗺️</i> Track Order</a></div><div class="account-dropdown-footer"><div class="account-dropdown-links"><a href="seller.html"><i>🏪</i> Become a Seller</a></div></div></div></div></div></div></header>
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active" data-cat="0"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item" data-cat="1"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item" data-cat="2"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item" data-cat="3"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item" data-cat="4"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div><div class="mega-menu-item" data-cat="5"><div class="mega-menu-item-left"><i>📚</i> Books</div> ›</div><div class="mega-menu-item" data-cat="6"><div class="mega-menu-item-left"><i>⚽</i> Sports</div> ›</div><div class="mega-menu-item" data-cat="7"><div class="mega-menu-item-left"><i>🧸</i> Toys & Baby</div> ›</div><div class="mega-menu-item" data-cat="8"><div class="mega-menu-item-left"><i>🚗</i> Automotive</div> ›</div><div class="mega-menu-item" data-cat="9"><div class="mega-menu-item-left"><i>🌿</i> Health</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics">Samsung</a><a href="category.html?cat=electronics">iPhone</a><a href="category.html?cat=electronics">Xiaomi</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics">Laptops</a><a href="category.html?cat=electronics">Tablets</a></div><div class="mega-sub-group"><h5>Audio & TV</h5><a href="category.html?cat=electronics">Headphones</a><a href="category.html?cat=electronics">Smart TVs</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Men's</h5><a href="category.html?cat=fashion">T-Shirts</a><a href="category.html?cat=fashion">Jeans</a></div><div class="mega-sub-group"><h5>Women's</h5><a href="category.html?cat=fashion">Sarees</a><a href="category.html?cat=fashion">Dresses</a></div><div class="mega-sub-group"><h5>Footwear</h5><a href="category.html?cat=fashion">Shoes</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Skincare</h5><a href="category.html?cat=beauty">Face Wash</a><a href="category.html?cat=beauty">Moisturizer</a></div><div class="mega-sub-group"><h5>Makeup</h5><a href="category.html?cat=beauty">Lipstick</a><a href="category.html?cat=beauty">Foundation</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Furniture</h5><a href="category.html?cat=home">Sofas</a><a href="category.html?cat=home">Beds</a></div><div class="mega-sub-group"><h5>Kitchen</h5><a href="category.html?cat=home">Appliances</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Beverages</h5><a href="category.html?cat=groceries">Tea & Coffee</a></div><div class="mega-sub-group"><h5>Snacks</h5><a href="category.html?cat=groceries">Chips</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Books</h5><a href="category.html?cat=books">Academic</a><a href="category.html?cat=books">Fiction</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Sports</h5><a href="category.html?cat=sports">Cricket</a><a href="category.html?cat=sports">Football</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Toys</h5><a href="category.html?cat=toys">Action Figures</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Automotive</h5><a href="category.html?cat=automotive">Accessories</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Health</h5><a href="category.html?cat=health">Supplements</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link nav-link-hot">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a><a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a><a href="category.html?cat=groceries" class="nav-link">🥕 Groceries</a><a href="blog.html" class="nav-link active">📝 Blog</a></div></div></nav>
+<div class="page-hero"><div class="container"><div class="page-hero-content"><h1>📝 Dadar Shop Blog</h1><div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Blog</span></div></div></div></div>
+
+<div class="container" style="padding:32px var(--container-padding);">
+  <!-- Categories Filter -->
+  <div style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;">
+    <button class="section-tab active" style="padding:8px 16px;">All</button>
+    <button class="section-tab" style="padding:8px 16px;">Shopping Tips</button>
+    <button class="section-tab" style="padding:8px 16px;">Tech Reviews</button>
+    <button class="section-tab" style="padding:8px 16px;">Fashion</button>
+    <button class="section-tab" style="padding:8px 16px;">Health & Beauty</button>
+    <button class="section-tab" style="padding:8px 16px;">Home Decor</button>
+    <button class="section-tab" style="padding:8px 16px;">Deals & Offers</button>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 300px;gap:32px;">
+    <!-- Blog Posts -->
+    <div>
+      <!-- Featured Post -->
+      <div class="blog-card" style="margin-bottom:24px;" onclick="window.location.href='blog-post.html'">
+        <div class="blog-card-img" style="height:240px;font-size:80px;background:linear-gradient(135deg,#1a1a2e,#0f3460);">📱</div>
+        <div class="blog-card-body">
+          <span class="blog-tag">FEATURED · TECH REVIEW</span>
+          <h2 class="blog-title" style="font-size:20px;">Samsung Galaxy S24 Ultra vs iPhone 15 Pro Max: Which Should You Buy in 2025?</h2>
+          <p class="blog-excerpt" style="-webkit-line-clamp:3;">We spent 3 weeks comparing both flagship smartphones across camera quality, battery life, performance, and value for money in the Bangladesh market. Here's our definitive verdict...</p>
+          <div class="blog-meta">
+            <div class="blog-author"><div class="blog-author-img">A</div><span>Arif Rahman</span></div>
+            <span>June 14, 2025 · 8 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="grid-3" style="margin-bottom:24px;">
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#8B2FC9,#D63384);">👗</div>
+          <div class="blog-card-body"><span class="blog-tag">FASHION</span><h3 class="blog-title">Top 10 Fashion Trends for Monsoon 2025</h3><p class="blog-excerpt">Stay stylish this monsoon season with our curated picks of the hottest fashion trends from local and international brands available at Dadar Shop.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">S</div><span>Sadia K.</span></div><span>June 12 · 5 min</span></div></div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);">🧴</div>
+          <div class="blog-card-body"><span class="blog-tag">BEAUTY</span><h3 class="blog-title">The Ultimate Skincare Routine for Bangladesh's Humid Climate</h3><p class="blog-excerpt">Dermatologist-approved skincare routine designed specifically for the hot and humid climate of Bangladesh. Lightweight yet effective products.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">N</div><span>Dr. Nadia</span></div><span>June 10 · 6 min</span></div></div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#11998e,#38ef7d);">🛋️</div>
+          <div class="blog-card-body"><span class="blog-tag">HOME DECOR</span><h3 class="blog-title">Transform Your Living Room on a Budget: 10 Easy Ideas</h3><p class="blog-excerpt">Budget-friendly home decoration tips using products available on Dadar Shop. Create a stylish living space without breaking the bank.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">R</div><span>Riya B.</span></div><span>June 8 · 4 min</span></div></div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#667eea,#764ba2);">💡</div>
+          <div class="blog-card-body"><span class="blog-tag">SHOPPING TIPS</span><h3 class="blog-title">How to Get the Best Deals on Dadar Shop: 15 Insider Tips</h3><p class="blog-excerpt">Maximize your savings with these proven strategies including flash sale timing, coupon stacking, and using reward points effectively.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">K</div><span>Karim A.</span></div><span>June 6 · 7 min</span></div></div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">💻</div>
+          <div class="blog-card-body"><span class="blog-tag">TECH</span><h3 class="blog-title">Best Laptops Under ৳50,000 in Bangladesh (2025)</h3><p class="blog-excerpt">Our expert team tested 15 laptops under ৳50,000 to find the best value options for students, professionals, and gamers.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">T</div><span>Tanvir H.</span></div><span>June 4 · 9 min</span></div></div>
+        </div>
+        <div class="blog-card" onclick="window.location.href='blog-post.html'">
+          <div class="blog-card-img" style="background:linear-gradient(135deg,#f85606,#ff7a35);">🥕</div>
+          <div class="blog-card-body"><span class="blog-tag">GROCERIES</span><h3 class="blog-title">Why Online Grocery Shopping is the Future in Bangladesh</h3><p class="blog-excerpt">How Dadar Shop is transforming grocery shopping with same-day delivery, quality guarantees and competitive pricing across Dhaka.</p><div class="blog-meta"><div class="blog-author"><div class="blog-author-img">F</div><span>Farhan M.</span></div><span>June 2 · 4 min</span></div></div>
+        </div>
+      </div>
+
+      <div class="pagination"><button class="page-btn disabled">‹</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><button class="page-btn">›</button></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div>
+      <!-- Search -->
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;">Search Blog</h4>
+        <div class="input-group"><input class="form-control" placeholder="Search articles..."/><button class="btn btn-primary" style="border-radius:0 var(--radius) var(--radius) 0;">🔍</button></div>
+      </div>
+
+      <!-- Categories -->
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;">Categories</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border-light);cursor:pointer;" class="hover:text-primary">📱 Tech Reviews <span style="color:var(--text-muted);">24</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border-light);cursor:pointer;">👗 Fashion <span style="color:var(--text-muted);">18</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border-light);cursor:pointer;">💡 Shopping Tips <span style="color:var(--text-muted);">31</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border-light);cursor:pointer;">🧴 Health & Beauty <span style="color:var(--text-muted);">15</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;padding:6px 0;cursor:pointer;">🏠 Home Decor <span style="color:var(--text-muted);">12</span></div>
+        </div>
+      </div>
+
+      <!-- Popular Posts -->
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);padding:20px;margin-bottom:20px;">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;">Popular Posts</h4>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:10px;cursor:pointer;" onclick="window.location.href='blog-post.html'">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#1a1a2e,#0f3460);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">📱</div>
+            <div><div style="font-size:12px;font-weight:600;line-height:1.4;">Samsung vs iPhone 2025 Comparison</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">8,234 views</div></div>
+          </div>
+          <div style="display:flex;gap:10px;cursor:pointer;" onclick="window.location.href='blog-post.html'">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">💡</div>
+            <div><div style="font-size:12px;font-weight:600;line-height:1.4;">15 Insider Tips to Save Money</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">6,891 views</div></div>
+          </div>
+          <div style="display:flex;gap:10px;cursor:pointer;" onclick="window.location.href='blog-post.html'">
+            <div style="width:56px;height:56px;background:linear-gradient(135deg,#fc4a1a,#f7b733);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">🧴</div>
+            <div><div style="font-size:12px;font-weight:600;line-height:1.4;">Ultimate Skincare Routine Guide</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">5,102 views</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius-md);padding:20px;color:white;">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:8px;">📧 Newsletter</h4>
+        <p style="font-size:12px;opacity:0.85;margin-bottom:14px;">Get the latest articles and deals in your inbox.</p>
+        <input class="form-control" placeholder="Your email..." style="margin-bottom:8px;"/>
+        <button class="btn" style="width:100%;background:white;color:var(--primary);font-weight:700;" onclick="showToast('Subscribed!','Welcome to our newsletter!','success')">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home & Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>🛒 Cart (<span class="cart-count">0</span>)</h3><button class="cart-close-btn" onclick="closeCart()">✕</button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div><div class="cart-summary-row"><span>Delivery:</span><span>৳60</span></div><div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div><button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button><a href="cart.html" style="display:block;text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;">View Full Cart</a></div></div>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span><span class="mobile-cart-count">0</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top">↑</button>
+<script src="js/main.js"></script>
+<script>
+document.querySelectorAll('.section-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

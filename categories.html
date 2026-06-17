@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>All Categories - Dadar Shop</title>
+<meta name="description" content="Browse all product categories on Dadar Shop. Electronics, Fashion, Beauty, Groceries and hundreds more."/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+</head>
+<body>
+<div class="toast-container"></div>
+
+<!-- Topbar -->
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Deliver to: <a href="#">Dhaka</a></span><span class="topbar-divider">|</span><span>📞 16345</span></div><div class="topbar-right"><a href="seller.html">Sell on Dadar Shop</a><span class="topbar-divider">|</span><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Login</a><span class="topbar-divider">|</span><a href="register.html">Register</a></div></div></div>
+
+<!-- Header -->
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option></select><input type="text" class="search-input" placeholder="Search products, brands and more..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="header-action-btn" onclick="window.location.href='account.html'"><span>👤</span><span>Account</span></div></div></div></header>
+
+<!-- Navbar -->
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics&sub=mobiles">Samsung</a><a href="category.html?cat=electronics&sub=mobiles">iPhone</a><a href="category.html?cat=electronics&sub=mobiles">Xiaomi</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics&sub=laptops">Laptops</a><a href="category.html?cat=electronics&sub=tablets">Tablets</a><a href="category.html?cat=electronics&sub=computers">Desktops</a></div><div class="mega-sub-group"><h5>Audio</h5><a href="category.html?cat=electronics&sub=headphones">Headphones</a><a href="category.html?cat=electronics&sub=speakers">Speakers</a><a href="category.html?cat=electronics&sub=tv">Smart TVs</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link sale">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a></div></div></nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <h1>📂 All Categories</h1>
+      <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">All Categories</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Search Categories -->
+<div style="background:white;padding:20px 0;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="max-width:480px;margin:0 auto;">
+      <div class="input-group-icon">
+        <i>🔍</i>
+        <input class="form-control" placeholder="Search categories..." id="catSearch" oninput="filterCategories(this.value)"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding:32px var(--container-padding);">
+
+  <!-- Electronics -->
+  <div class="cat-section" data-name="electronics">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">📱 Electronics</div><div class="section-subtitle">Smartphones, Laptops, Audio, TV & More</div></div></div><a href="category.html?cat=electronics" class="section-view-all">Shop All Electronics →</a></div>
+    <div class="all-categories-grid" style="grid-template-columns:repeat(6,1fr);">
+      <a href="category.html?cat=electronics&sub=mobiles" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);">📱</div><div class="all-cat-body"><div class="all-cat-name">Mobiles</div><div class="all-cat-sub">2,400+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Samsung</span><span class="all-cat-sub-tag">iPhone</span><span class="all-cat-sub-tag">Xiaomi</span></div></div></a>
+      <a href="category.html?cat=electronics&sub=laptops" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#667eea,#764ba2);">💻</div><div class="all-cat-body"><div class="all-cat-name">Laptops</div><div class="all-cat-sub">840+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">ASUS</span><span class="all-cat-sub-tag">HP</span><span class="all-cat-sub-tag">Apple</span></div></div></a>
+      <a href="category.html?cat=electronics&sub=tablets" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#5C258D,#4389A2);">📱</div><div class="all-cat-body"><div class="all-cat-name">Tablets</div><div class="all-cat-sub">420+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">iPad</span><span class="all-cat-sub-tag">Samsung Tab</span></div></div></a>
+      <a href="category.html?cat=electronics&sub=headphones" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#f85606,#ff7a35);">🎧</div><div class="all-cat-body"><div class="all-cat-name">Headphones</div><div class="all-cat-sub">1,200+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Sony</span><span class="all-cat-sub-tag">JBL</span><span class="all-cat-sub-tag">Bose</span></div></div></a>
+      <a href="category.html?cat=electronics&sub=tv" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#232526,#414345);">📺</div><div class="all-cat-body"><div class="all-cat-name">Smart TVs</div><div class="all-cat-sub">560+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Samsung</span><span class="all-cat-sub-tag">LG</span><span class="all-cat-sub-tag">Sony</span></div></div></a>
+      <a href="category.html?cat=electronics&sub=cameras" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#4568DC,#B06AB3);">📷</div><div class="all-cat-body"><div class="all-cat-name">Cameras</div><div class="all-cat-sub">380+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Canon</span><span class="all-cat-sub-tag">Nikon</span><span class="all-cat-sub-tag">Sony</span></div></div></a>
+    </div>
+  </div>
+
+  <div style="margin:32px 0;border-top:1px solid var(--border);"></div>
+
+  <!-- Fashion -->
+  <div class="cat-section" data-name="fashion">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">👗 Fashion</div><div class="section-subtitle">Clothing, Footwear, Bags & Accessories</div></div></div><a href="category.html?cat=fashion" class="section-view-all">Shop All Fashion →</a></div>
+    <div class="all-categories-grid" style="grid-template-columns:repeat(6,1fr);">
+      <a href="category.html?cat=fashion&sub=mens" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#16213e,#0f3460);">👔</div><div class="all-cat-body"><div class="all-cat-name">Men's Clothing</div><div class="all-cat-sub">5,200+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">T-Shirts</span><span class="all-cat-sub-tag">Shirts</span><span class="all-cat-sub-tag">Jeans</span></div></div></a>
+      <a href="category.html?cat=fashion&sub=womens" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#8B2FC9,#D63384);">👗</div><div class="all-cat-body"><div class="all-cat-name">Women's Clothing</div><div class="all-cat-sub">8,400+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Sarees</span><span class="all-cat-sub-tag">Dresses</span><span class="all-cat-sub-tag">Tops</span></div></div></a>
+      <a href="category.html?cat=fashion&sub=shoes" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);">👟</div><div class="all-cat-body"><div class="all-cat-name">Footwear</div><div class="all-cat-sub">3,100+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Nike</span><span class="all-cat-sub-tag">Adidas</span><span class="all-cat-sub-tag">Puma</span></div></div></a>
+      <a href="category.html?cat=fashion&sub=bags" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#c94b4b,#4b134f);">👜</div><div class="all-cat-body"><div class="all-cat-name">Bags & Purses</div><div class="all-cat-sub">1,800+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Handbags</span><span class="all-cat-sub-tag">Backpacks</span></div></div></a>
+      <a href="category.html?cat=fashion&sub=accessories" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#f7971e,#ffd200);">💍</div><div class="all-cat-body"><div class="all-cat-name">Accessories</div><div class="all-cat-sub">2,600+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Watches</span><span class="all-cat-sub-tag">Jewelry</span><span class="all-cat-sub-tag">Belts</span></div></div></a>
+      <a href="category.html?cat=fashion&sub=kids" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#11998e,#38ef7d);">🧒</div><div class="all-cat-body"><div class="all-cat-name">Kids Clothing</div><div class="all-cat-sub">2,100+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Boys</span><span class="all-cat-sub-tag">Girls</span><span class="all-cat-sub-tag">Infant</span></div></div></a>
+    </div>
+  </div>
+
+  <div style="margin:32px 0;border-top:1px solid var(--border);"></div>
+
+  <!-- Beauty -->
+  <div class="cat-section" data-name="beauty">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">💄 Beauty & Personal Care</div><div class="section-subtitle">Skincare, Makeup, Hair Care & Fragrances</div></div></div><a href="category.html?cat=beauty" class="section-view-all">Shop All Beauty →</a></div>
+    <div class="all-categories-grid" style="grid-template-columns:repeat(6,1fr);">
+      <a href="category.html?cat=beauty&sub=skincare" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#f7971e,#ffd200);">🌸</div><div class="all-cat-body"><div class="all-cat-name">Skincare</div><div class="all-cat-sub">3,200+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Moisturizer</span><span class="all-cat-sub-tag">Serum</span><span class="all-cat-sub-tag">SPF</span></div></div></a>
+      <a href="category.html?cat=beauty&sub=makeup" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#D63384,#dc3545);">💋</div><div class="all-cat-body"><div class="all-cat-name">Makeup</div><div class="all-cat-sub">2,800+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Lipstick</span><span class="all-cat-sub-tag">Foundation</span></div></div></a>
+      <a href="category.html?cat=beauty&sub=haircare" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#4568DC,#B06AB3);">💇</div><div class="all-cat-body"><div class="all-cat-name">Hair Care</div><div class="all-cat-sub">1,400+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Shampoo</span><span class="all-cat-sub-tag">Oil</span><span class="all-cat-sub-tag">Serum</span></div></div></a>
+      <a href="category.html?cat=beauty&sub=fragrance" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#8360c3,#2ebf91);">🌺</div><div class="all-cat-body"><div class="all-cat-name">Fragrances</div><div class="all-cat-sub">680+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Perfumes</span><span class="all-cat-sub-tag">Deodorants</span></div></div></a>
+      <a href="category.html?cat=beauty&sub=bath" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#11998e,#38ef7d);">🛁</div><div class="all-cat-body"><div class="all-cat-name">Bath & Body</div><div class="all-cat-sub">920+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Body Wash</span><span class="all-cat-sub-tag">Lotion</span></div></div></a>
+      <a href="category.html?cat=beauty&sub=mens-grooming" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#16213e,#1a1a2e);">🪒</div><div class="all-cat-body"><div class="all-cat-name">Men's Grooming</div><div class="all-cat-sub">760+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Shaving</span><span class="all-cat-sub-tag">Face Wash</span></div></div></a>
+    </div>
+  </div>
+
+  <div style="margin:32px 0;border-top:1px solid var(--border);"></div>
+
+  <!-- Home & Living -->
+  <div class="cat-section" data-name="home living furniture">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">🏠 Home & Living</div><div class="section-subtitle">Furniture, Kitchen, Decor & Appliances</div></div></div><a href="category.html?cat=home" class="section-view-all">Shop All Home →</a></div>
+    <div class="all-categories-grid" style="grid-template-columns:repeat(6,1fr);">
+      <a href="category.html?cat=home&sub=furniture" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#5D4037,#795548);">🛋️</div><div class="all-cat-body"><div class="all-cat-name">Furniture</div><div class="all-cat-sub">1,800+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Sofas</span><span class="all-cat-sub-tag">Beds</span><span class="all-cat-sub-tag">Tables</span></div></div></a>
+      <a href="category.html?cat=home&sub=kitchen" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#ff6b6b,#ffd93d);">🍳</div><div class="all-cat-body"><div class="all-cat-name">Kitchen</div><div class="all-cat-sub">2,400+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Cookware</span><span class="all-cat-sub-tag">Appliances</span></div></div></a>
+      <a href="category.html?cat=home&sub=decor" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#667eea,#764ba2);">🕯️</div><div class="all-cat-body"><div class="all-cat-name">Home Decor</div><div class="all-cat-sub">3,100+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Lamps</span><span class="all-cat-sub-tag">Curtains</span><span class="all-cat-sub-tag">Art</span></div></div></a>
+      <a href="category.html?cat=home&sub=bedding" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#11998e,#38ef7d);">🛏️</div><div class="all-cat-body"><div class="all-cat-name">Bedding</div><div class="all-cat-sub">980+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Pillows</span><span class="all-cat-sub-tag">Sheets</span><span class="all-cat-sub-tag">Blankets</span></div></div></a>
+      <a href="category.html?cat=home&sub=tools" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#232526,#414345);">🔧</div><div class="all-cat-body"><div class="all-cat-name">Tools & DIY</div><div class="all-cat-sub">1,200+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Hand Tools</span><span class="all-cat-sub-tag">Power</span></div></div></a>
+      <a href="category.html?cat=home&sub=cleaning" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">🧹</div><div class="all-cat-body"><div class="all-cat-name">Cleaning</div><div class="all-cat-sub">640+ products</div><div class="all-cat-subs"><span class="all-cat-sub-tag">Vacuum</span><span class="all-cat-sub-tag">Mops</span></div></div></a>
+    </div>
+  </div>
+
+  <div style="margin:32px 0;border-top:1px solid var(--border);"></div>
+
+  <!-- More Categories Grid -->
+  <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div class="section-title">More Categories</div></div></div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;">
+    <a href="category.html?cat=groceries" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#11998e,#38ef7d);">🥕</div><div class="all-cat-body"><div class="all-cat-name">Groceries</div><div class="all-cat-sub">12,000+ products</div></div></a>
+    <a href="category.html?cat=sports" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#f85606,#ff7a35);">⚽</div><div class="all-cat-body"><div class="all-cat-name">Sports & Outdoors</div><div class="all-cat-sub">3,800+ products</div></div></a>
+    <a href="category.html?cat=books" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#667eea,#764ba2);">📚</div><div class="all-cat-body"><div class="all-cat-name">Books & Stationery</div><div class="all-cat-sub">8,000+ products</div></div></a>
+    <a href="category.html?cat=toys" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);">🧸</div><div class="all-cat-body"><div class="all-cat-name">Toys & Baby</div><div class="all-cat-sub">4,200+ products</div></div></a>
+    <a href="category.html?cat=automotive" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#232526,#414345);">🚗</div><div class="all-cat-body"><div class="all-cat-name">Automotive</div><div class="all-cat-sub">2,100+ products</div></div></a>
+    <a href="category.html?cat=health" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#11998e,#38ef7d);">💊</div><div class="all-cat-body"><div class="all-cat-name">Health & Wellness</div><div class="all-cat-sub">3,600+ products</div></div></a>
+    <a href="category.html?cat=music" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#4568DC,#B06AB3);">🎵</div><div class="all-cat-body"><div class="all-cat-name">Music & Instruments</div><div class="all-cat-sub">1,200+ products</div></div></a>
+    <a href="category.html?cat=office" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#5C258D,#4389A2);">💼</div><div class="all-cat-body"><div class="all-cat-name">Office & Stationery</div><div class="all-cat-sub">2,400+ products</div></div></a>
+    <a href="category.html?cat=pet" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#f7971e,#ffd200);">🐾</div><div class="all-cat-body"><div class="all-cat-name">Pet Supplies</div><div class="all-cat-sub">1,800+ products</div></div></a>
+    <a href="category.html?cat=travel" class="all-cat-card" style="text-decoration:none;"><div class="all-cat-banner" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);">✈️</div><div class="all-cat-body"><div class="all-cat-name">Travel & Luggage</div><div class="all-cat-sub">960+ products</div></div></a>
+  </div>
+
+</div>
+
+<!-- Newsletter -->
+<section class="newsletter-section" style="margin-top:32px;">
+  <div class="container"><div class="newsletter-content"><h2>🔔 Never Miss a Deal</h2><p>Subscribe for exclusive offers, new arrivals and flash sale alerts.</p><form class="newsletter-form" onsubmit="event.preventDefault();showToast('Subscribed!','Welcome to Dadar Shop!','success');this.reset();"><input type="email" placeholder="Enter your email..."/><button type="submit">Subscribe</button></form></div></div>
+</section>
+
+<!-- Footer -->
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home &amp; Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>🛒 Cart (<span class="cart-count">0</span>)</h3><button class="cart-close-btn" onclick="closeCart()">✕</button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div><div class="cart-summary-row"><span>Delivery:</span><span>৳60</span></div><div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div><button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button><a href="cart.html" style="display:block;text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;">View Full Cart</a></div></div>
+
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item active" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+function filterCategories(q) {
+  q = q.toLowerCase();
+  document.querySelectorAll('.cat-section').forEach(section => {
+    const name = section.dataset.name || '';
+    section.style.display = !q || name.includes(q) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>

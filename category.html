@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Category - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.category-layout { display: grid; grid-template-columns: 240px 1fr; gap: 20px; }
+.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media(max-width:992px){ .category-layout { grid-template-columns: 1fr; } .filter-sidebar { position: static; } }
+@media(max-width:768px){ .products-grid { grid-template-columns: repeat(2, 1fr); } }
+.sub-nav { display: flex; gap: 8px; overflow-x: auto; padding: 16px 0; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.sub-nav::-webkit-scrollbar { display: none; }
+.sub-link { padding: 6px 14px; border-radius: var(--radius-full); border: 1.5px solid var(--border); font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: var(--transition); background: white; color: var(--text-primary); text-decoration:none; display:inline-block; }
+.sub-link:hover, .sub-link.active { background: var(--primary); color: white; border-color: var(--primary); }
+.category-banner { border-radius: var(--radius-md); overflow: hidden; height: 180px; display: flex; align-items: center; margin-bottom: 24px; padding: 32px 40px; position: relative; }
+.filter-mobile-btn { display: none; padding: 8px 16px; background: var(--primary); color: white; border: none; border-radius: var(--radius); font-size: 13px; font-weight: 600; cursor: pointer; }
+@media(max-width:992px){ .filter-mobile-btn { display: block; } }
+</style>
+</head>
+<body>
+<div class="toast-container"></div>
+
+<!-- Topbar -->
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Dhaka</span><span class="topbar-divider">|</span><span>📞 16345</span><span class="topbar-divider">|</span><span>Free delivery above ৳1000</span></div><div class="topbar-right"><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Login</a><span class="topbar-divider">|</span><a href="register.html">Register</a></div></div></div>
+
+<!-- Header -->
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option></select><input type="text" class="search-input" placeholder="Search within category..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="header-action-btn" onclick="window.location.href='account.html'"><span>👤</span><span>Account</span></div></div></div></header>
+
+<!-- Navbar -->
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics&sub=mobiles">All Phones</a><a href="#">Samsung</a><a href="#">iPhone</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics&sub=laptops">Laptops</a><a href="#">Desktops</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link sale">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a></div></div></nav>
+
+<!-- Category Banner -->
+<div id="cat-banner" class="category-banner" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);margin:0;">
+  <div style="position:relative;z-index:2;">
+    <div class="breadcrumb" style="margin-bottom:10px;"><a href="index.html" style="color:rgba(255,255,255,0.6);">Home</a><span class="breadcrumb-sep" style="color:rgba(255,255,255,0.3);">›</span><a href="categories.html" style="color:rgba(255,255,255,0.6);">Categories</a><span class="breadcrumb-sep" style="color:rgba(255,255,255,0.3);">›</span><span id="cat-breadcrumb" class="breadcrumb-current">Electronics</span></div>
+    <h1 style="font-size:28px;font-weight:800;color:white;margin-bottom:6px;" id="cat-title">📱 Electronics</h1>
+    <p style="color:rgba(255,255,255,0.75);font-size:13px;" id="cat-desc">Shop smartphones, laptops, tablets, audio and more</p>
+  </div>
+  <div id="cat-emoji" style="position:absolute;right:80px;font-size:100px;opacity:0.1;">📱</div>
+</div>
+
+<!-- Subcategory Navigation -->
+<div style="background:white;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="sub-nav" id="sub-nav">
+      <a href="#" class="sub-link active" onclick="filterSub(event,'all')">All</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'mobiles')">📱 Mobiles</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'laptops')">💻 Laptops</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'tablets')">🖥️ Tablets</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'headphones')">🎧 Headphones</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'tv')">📺 Smart TVs</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'cameras')">📷 Cameras</a>
+      <a href="#" class="sub-link" onclick="filterSub(event,'accessories')">🔌 Accessories</a>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding:24px var(--container-padding);">
+
+  <!-- Active Filters -->
+  <div class="active-filters" id="active-filters"></div>
+
+  <div class="category-layout">
+    <!-- Filter Sidebar -->
+    <div>
+      <button class="filter-mobile-btn" onclick="document.querySelector('.filter-sidebar').classList.toggle('show')">🔧 Filters</button>
+      <div class="filter-sidebar mt-12">
+        <div class="filter-header"><h3>Filters</h3><span class="filter-clear" onclick="clearFilters()">Clear All</span></div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Price Range <i>▾</i></div>
+          <div class="price-slider">
+            <input type="range" class="price-range" min="0" max="200000" value="200000" oninput="document.getElementById('price-max').textContent='৳'+parseInt(this.value).toLocaleString()"/>
+            <div class="price-display"><span>৳0</span><span id="price-max">৳2,00,000</span></div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Brand <i>▾</i></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','Samsung')"><label>Samsung (423)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','Apple')"><label>Apple (187)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','Xiaomi')"><label>Xiaomi (312)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','Sony')"><label>Sony (156)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','ASUS')"><label>ASUS (98)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Brand','HP')"><label>HP (124)</label></label></div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Customer Rating <i>▾</i></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Rating','4★ & above')"><label>⭐⭐⭐⭐ & above (1,204)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Rating','3★ & above')"><label>⭐⭐⭐ & above (2,103)</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Rating','2★ & above')"><label>⭐⭐ & above (2,876)</label></label></div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Availability <i>▾</i></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Stock','In Stock')"><label>In Stock Only</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Delivery','Fast Delivery')"><label>Fast Delivery</label></label></div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Discount <i>▾</i></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Discount','50%+ off')"><label>50% or more</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Discount','30%+ off')"><label>30% or more</label></label></div>
+          <div class="filter-option"><label class="form-check"><input type="checkbox" onchange="addFilter('Discount','10%+ off')"><label>10% or more</label></label></div>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-group-title">Color <i>▾</i></div>
+          <div class="color-filters">
+            <div class="color-filter" style="background:#1a1a2e;" title="Black" onclick="this.classList.toggle('active');addFilter('Color','Black')"></div>
+            <div class="color-filter" style="background:#f0f0f0;border:1px solid #ccc;" title="White" onclick="this.classList.toggle('active');addFilter('Color','White')"></div>
+            <div class="color-filter" style="background:#3498db;" title="Blue" onclick="this.classList.toggle('active');addFilter('Color','Blue')"></div>
+            <div class="color-filter" style="background:#e74c3c;" title="Red" onclick="this.classList.toggle('active');addFilter('Color','Red')"></div>
+            <div class="color-filter" style="background:#2ecc71;" title="Green" onclick="this.classList.toggle('active');addFilter('Color','Green')"></div>
+            <div class="color-filter" style="background:#f39c12;" title="Gold" onclick="this.classList.toggle('active');addFilter('Color','Gold')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div>
+      <div class="listing-header">
+        <span class="listing-count"><span id="product-count">48</span> products found</span>
+        <div class="listing-controls">
+          <select class="sort-select" onchange="sortProducts(this.value)">
+            <option value="popular">Most Popular</option>
+            <option value="newest">Newest First</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+            <option value="discount">Most Discounted</option>
+          </select>
+          <div class="view-toggle">
+            <button class="view-btn active view-grid" title="Grid View">▦</button>
+            <button class="view-btn view-list" title="List View">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Products dynamically generated -->
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn disabled">‹</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn" onclick="changePage(this,2)">2</button>
+        <button class="page-btn" onclick="changePage(this,3)">3</button>
+        <button class="page-btn" onclick="changePage(this,4)">4</button>
+        <span style="padding:0 4px;color:var(--text-muted)">...</span>
+        <button class="page-btn" onclick="changePage(this,12)">12</button>
+        <button class="page-btn">›</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home &amp; Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>🛒 Cart (<span class="cart-count">0</span>)</h3><button class="cart-close-btn" onclick="closeCart()">✕</button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div><div class="cart-summary-row"><span>Delivery:</span><span>৳60</span></div><div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div><button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button><a href="cart.html" style="display:block;text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;">View Full Cart</a></div></div>
+
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item active" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+const catData = {
+  electronics: { title: '📱 Electronics', desc: 'Shop smartphones, laptops, tablets, audio and more', emoji: '📱', bg: 'linear-gradient(135deg,#1a1a2e,#0f3460)', sub: ['All','📱 Mobiles','💻 Laptops','🖥️ Tablets','🎧 Headphones','📺 Smart TVs','📷 Cameras','🔌 Accessories'] },
+  fashion: { title: '👗 Fashion', desc: 'Clothing, footwear, bags and accessories for everyone', emoji: '👗', bg: 'linear-gradient(135deg,#8B2FC9,#D63384)', sub: ['All','👔 Men\'s','👗 Women\'s','👟 Shoes','👜 Bags','💍 Accessories','🧒 Kids'] },
+  beauty: { title: '💄 Beauty & Care', desc: 'Skincare, makeup, hair care and personal care essentials', emoji: '💄', bg: 'linear-gradient(135deg,#fc4a1a,#f7b733)', sub: ['All','🌸 Skincare','💋 Makeup','💇 Hair Care','🌺 Fragrance','🛁 Bath & Body'] },
+  home: { title: '🏠 Home & Living', desc: 'Furniture, kitchen, decor and home appliances', emoji: '🏠', bg: 'linear-gradient(135deg,#11998e,#38ef7d)', sub: ['All','🛋️ Furniture','🍳 Kitchen','🕯️ Decor','🛏️ Bedding','🔧 Tools'] },
+  groceries: { title: '🥕 Groceries', desc: 'Fresh food, beverages, snacks and daily essentials', emoji: '🥕', bg: 'linear-gradient(135deg,#11998e,#38ef7d)', sub: ['All','🥤 Beverages','🍿 Snacks','🌾 Grains','🧴 Household','🍫 Confectionery'] },
+  sports: { title: '⚽ Sports & Outdoors', desc: 'Sports equipment, fitness gear and outdoor essentials', emoji: '⚽', bg: 'linear-gradient(135deg,#f85606,#ff7a35)', sub: ['All','⚽ Football','🏏 Cricket','🏸 Badminton','🏋️ Fitness','🧗 Outdoor'] },
+  books: { title: '📚 Books & Stationery', desc: 'Academic books, novels, stationery and office supplies', emoji: '📚', bg: 'linear-gradient(135deg,#667eea,#764ba2)', sub: ['All','📘 Academic','📖 Fiction','💼 Business','✏️ Stationery'] },
+  toys: { title: '🧸 Toys & Baby', desc: 'Toys, games and baby products for all ages', emoji: '🧸', bg: 'linear-gradient(135deg,#fc4a1a,#f7b733)', sub: ['All','🧸 Plush Toys','🎮 Electronic Toys','🧩 Puzzles','👶 Baby Care'] },
+};
+
+const products = [
+  {id:'c1',name:'Samsung Galaxy A55 5G 256GB Black',brand:'Samsung',price:38999,original:55000,discount:29,rating:4.5,reviews:2341,emoji:'📱',badge:'sale',sub:'mobiles'},
+  {id:'c2',name:'iPhone 15 Pro Max 256GB Natural Titanium',brand:'Apple',price:134999,original:0,discount:0,rating:4.9,reviews:8912,emoji:'📱',badge:'top',sub:'mobiles'},
+  {id:'c3',name:'Xiaomi 14T Pro 512GB',brand:'Xiaomi',price:72999,original:89999,discount:19,rating:4.7,reviews:1204,emoji:'📱',badge:'new',sub:'mobiles'},
+  {id:'c4',name:'ASUS ROG Zephyrus G14 Gaming Laptop',brand:'ASUS',price:119000,original:145000,discount:18,rating:4.8,reviews:654,emoji:'💻',badge:'hot',sub:'laptops'},
+  {id:'c5',name:'MacBook Air M3 13" 8GB 256GB',brand:'Apple',price:112000,original:135000,discount:17,rating:4.9,reviews:4321,emoji:'💻',badge:'top',sub:'laptops'},
+  {id:'c6',name:'HP Pavilion 15-eg3011TU i5',brand:'HP',price:58000,original:72000,discount:19,rating:4.3,reviews:892,emoji:'💻',badge:'',sub:'laptops'},
+  {id:'c7',name:'Sony WH-1000XM5 Wireless Headphones',brand:'Sony',price:18500,original:37000,discount:50,rating:4.9,reviews:12445,emoji:'🎧',badge:'sale',sub:'headphones'},
+  {id:'c8',name:'Samsung 55" Crystal UHD 4K Smart TV',brand:'Samsung',price:54999,original:72000,discount:24,rating:4.6,reviews:3241,emoji:'📺',badge:'',sub:'tv'},
+  {id:'c9',name:'Apple Watch Series 9 45mm GPS',brand:'Apple',price:42000,original:52000,discount:19,rating:4.8,reviews:5678,emoji:'⌚',badge:'',sub:'accessories'},
+  {id:'c10',name:'Canon EOS R50 Mirrorless Camera Kit',brand:'Canon',price:78000,original:95000,discount:18,rating:4.7,reviews:876,emoji:'📷',badge:'new',sub:'cameras'},
+  {id:'c11',name:'JBL Flip 6 Portable Speaker',brand:'JBL',price:7500,original:12000,discount:38,rating:4.6,reviews:4521,emoji:'🔊',badge:'sale',sub:'accessories'},
+  {id:'c12',name:'Samsung Galaxy Tab S9 FE 256GB',brand:'Samsung',price:45000,original:56000,discount:20,rating:4.5,reviews:1230,emoji:'📱',badge:'',sub:'tablets'},
+];
+
+function renderProducts(list) {
+  const grid = document.getElementById('products-grid');
+  if (!grid) return;
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="window.location.href='product.html?id=${p.id}'">
+      <div class="product-card-img">
+        <span>${p.emoji}</span>
+        ${p.badge ? `<div class="product-badges"><span class="product-badge badge-${p.badge}">${p.badge.toUpperCase()}</span></div>` : ''}
+        <div class="product-card-actions">
+          <button class="card-action-btn" data-wishlist="${p.id}" data-name="${p.name}" data-emoji="${p.emoji}" onclick="event.stopPropagation();">❤️</button>
+          <button class="card-action-btn" onclick="event.stopPropagation();showToast('Compare','Added to compare','info')">⚖️</button>
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-brand">${p.brand}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-rating"><div class="stars">${'★'.repeat(Math.floor(p.rating))}${p.rating%1?'☆':''}</div><span class="rating-count">(${p.reviews.toLocaleString()})</span></div>
+        <div class="product-price-row">
+          <span class="product-price">৳${p.price.toLocaleString()}</span>
+          ${p.original ? `<span class="product-original">৳${p.original.toLocaleString()}</span>` : ''}
+          ${p.discount ? `<span class="product-discount">-${p.discount}%</span>` : ''}
+        </div>
+      </div>
+      <div class="product-card-footer">
+        <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'${p.id}',name:'${p.name}',price:${p.price},emoji:'${p.emoji}'})">+ Cart</button>
+        <button class="btn-buy-now" onclick="event.stopPropagation();window.location.href='checkout.html'">Buy Now</button>
+      </div>
+    </div>`).join('');
+  document.getElementById('product-count').textContent = list.length;
+  initWishlistButtons();
+}
+
+function filterSub(e, sub) {
+  e.preventDefault();
+  document.querySelectorAll('.sub-link').forEach(l => l.classList.remove('active'));
+  e.target.classList.add('active');
+  const filtered = sub === 'all' ? products : products.filter(p => p.sub === sub);
+  renderProducts(filtered.length ? filtered : products);
+}
+
+function sortProducts(val) {
+  let list = [...products];
+  if (val === 'price-low') list.sort((a,b) => a.price - b.price);
+  else if (val === 'price-high') list.sort((a,b) => b.price - a.price);
+  else if (val === 'rating') list.sort((a,b) => b.rating - a.rating);
+  else if (val === 'discount') list.sort((a,b) => b.discount - a.discount);
+  renderProducts(list);
+}
+
+const activeFilters = [];
+function addFilter(type, value) {
+  const af = document.getElementById('active-filters');
+  const existing = activeFilters.find(f => f.type === type && f.value === value);
+  if (existing) { activeFilters.splice(activeFilters.indexOf(existing),1); }
+  else { activeFilters.push({type,value}); }
+  af.innerHTML = activeFilters.map(f => `<div class="active-filter-tag">${f.type}: ${f.value} <button onclick="removeFilter('${f.type}','${f.value}')">✕</button></div>`).join('');
+}
+function removeFilter(type, value) { addFilter(type,value); }
+function clearFilters() { activeFilters.length = 0; document.getElementById('active-filters').innerHTML = ''; document.querySelectorAll('.filter-sidebar input[type=checkbox]').forEach(cb => cb.checked = false); }
+
+function changePage(btn, num) {
+  document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Load category from URL
+const params = new URLSearchParams(location.search);
+const cat = params.get('cat') || 'electronics';
+const data = catData[cat] || catData.electronics;
+document.getElementById('cat-title').textContent = data.title;
+document.getElementById('cat-desc').textContent = data.desc;
+document.getElementById('cat-emoji').textContent = data.emoji;
+document.getElementById('cat-banner').style.background = data.bg;
+document.getElementById('cat-breadcrumb').textContent = data.title.replace(/[^\w\s]/g,'').trim();
+document.title = data.title.replace(/[^\w\s]/g,'').trim() + ' - Dadar Shop';
+
+const subNav = document.getElementById('sub-nav');
+if (data.sub) {
+  subNav.innerHTML = data.sub.map((s,i) => `<a href="#" class="sub-link ${i===0?'active':''}" onclick="filterSub(event,'${s.toLowerCase().replace(/[^\w]/g,'')}')">${s}</a>`).join('');
+}
+
+renderProducts(products);
+</script>
+</body>
+</html>

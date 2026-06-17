@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sell on Dadar Shop - Become a Seller</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.seller-feature { background:white; border-radius:var(--radius-md); border:1px solid var(--border); padding:24px; text-align:center; }
+.seller-feature-icon { font-size:40px; margin-bottom:14px; }
+.seller-step { display:flex; gap:16px; align-items:flex-start; padding:20px 0; border-bottom:1px solid var(--border-light); }
+.seller-step:last-child { border-bottom:none; }
+.step-num { width:40px; height:40px; border-radius:50%; background:var(--primary); color:white; font-size:16px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.plan-card { border:2px solid var(--border); border-radius:var(--radius-lg); padding:28px; transition:var(--transition-slow); }
+.plan-card.featured { border-color:var(--primary); position:relative; }
+.plan-card.featured::before { content:'MOST POPULAR'; position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:white; font-size:11px; font-weight:800; padding:4px 16px; border-radius:var(--radius-full); }
+</style>
+</head>
+<body>
+<div class="toast-container"></div>
+<div class="topbar"><div class="container"><div class="topbar-left"><span>🏪 Seller Center</span><span class="topbar-divider">|</span><span>📞 16345 (Seller Helpline)</span></div><div class="topbar-right"><a href="login.html">Seller Login</a><span class="topbar-divider">|</span><a href="index.html">Back to Dadar Shop</a></div></div></div>
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Seller Center</span></div></a><div class="header-search" style="max-width:400px;"><div class="search-wrapper"><input type="text" class="search-input" placeholder="Search help articles..."/><button class="search-btn">🔍</button></div></div><div style="margin-left:auto;display:flex;gap:8px;"><a href="index.html" class="btn btn-light btn-sm">🛍️ Back to Shopping</a><button class="btn btn-white btn-sm" onclick="document.getElementById('seller-form').scrollIntoView({behavior:'smooth'})">🏪 Start Selling Free</button></div></div></header>
+<nav class="navbar"><div class="container"><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="#" class="nav-link active">🏪 Seller Center</a><a href="#" class="nav-link">📊 Seller Dashboard</a><a href="#" class="nav-link">📦 My Products</a><a href="#" class="nav-link">📋 Orders</a><a href="#" class="nav-link">💰 Earnings</a><a href="help.html" class="nav-link">❓ Seller Help</a><a href="contact.html" class="nav-link">📞 Contact</a></div></div></nav>
+
+<!-- Seller Hero -->
+<div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);padding:80px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(248,86,6,0.2),transparent 60%);"></div>
+  <div class="container" style="position:relative;z-index:2;text-align:center;">
+    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:14px;">JOIN 50,000+ SUCCESSFUL SELLERS</div>
+    <h1 style="font-size:44px;font-weight:900;color:white;line-height:1.2;margin-bottom:16px;">Grow Your Business<br/>with <span style="color:var(--primary);">Dadar Shop</span></h1>
+    <p style="font-size:16px;color:rgba(255,255,255,0.8);max-width:600px;margin:0 auto 32px;line-height:1.7;">Reach 10 million+ customers across Bangladesh. List your products, manage orders, and grow your revenue — all from one powerful seller dashboard.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <button class="btn-hero btn-hero-primary" onclick="document.getElementById('seller-form').scrollIntoView({behavior:'smooth'})">🚀 Start Selling Free</button>
+      <button class="btn-hero btn-hero-outline" onclick="showToast('Demo','Loading seller demo...','info')">▶️ Watch Demo</button>
+    </div>
+    <div style="display:flex;gap:32px;justify-content:center;margin-top:40px;flex-wrap:wrap;">
+      <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:white;">৳0</div><div style="font-size:12px;color:rgba(255,255,255,0.7);">Registration Fee</div></div>
+      <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:white;">2.5%</div><div style="font-size:12px;color:rgba(255,255,255,0.7);">Commission Rate</div></div>
+      <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:white;">10M+</div><div style="font-size:12px;color:rgba(255,255,255,0.7);">Active Buyers</div></div>
+      <div style="text-align:center;"><div style="font-size:28px;font-weight:900;color:white;">24hr</div><div style="font-size:12px;color:rgba(255,255,255,0.7);">Payment Settlement</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding:48px var(--container-padding);">
+  <!-- Features -->
+  <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">Why Sell on Dadar Shop?</div><div class="section-subtitle">Everything you need to succeed online</div></div></div></div>
+  <div class="grid-3" style="margin-bottom:48px;">
+    <div class="seller-feature"><div class="seller-feature-icon">📊</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Powerful Dashboard</h3><p style="font-size:13px;color:var(--text-muted);">Real-time sales analytics, inventory management, and order tracking in one easy-to-use dashboard.</p></div>
+    <div class="seller-feature"><div class="seller-feature-icon">🚚</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Logistics Support</h3><p style="font-size:13px;color:var(--text-muted);">Our logistics network covers all 64 districts. We handle pickup, packaging, and delivery for you.</p></div>
+    <div class="seller-feature"><div class="seller-feature-icon">💰</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Fast Payments</h3><p style="font-size:13px;color:var(--text-muted);">Get paid within 24 hours of delivery confirmation. Direct transfer to your bank or bKash.</p></div>
+    <div class="seller-feature"><div class="seller-feature-icon">📣</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Marketing Tools</h3><p style="font-size:13px;color:var(--text-muted);">Run flash sales, create coupons, and advertise your products to millions of targeted buyers.</p></div>
+    <div class="seller-feature"><div class="seller-feature-icon">🤝</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Dedicated Support</h3><p style="font-size:13px;color:var(--text-muted);">Your dedicated seller account manager is just a call away to help you grow your business.</p></div>
+    <div class="seller-feature"><div class="seller-feature-icon">🛡️</div><h3 style="font-size:16px;font-weight:700;margin-bottom:8px;">Seller Protection</h3><p style="font-size:13px;color:var(--text-muted);">Built-in seller protection against fraudulent buyers and unfair returns.</p></div>
+  </div>
+
+  <!-- How to Start -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:48px;">
+    <div>
+      <div class="section-header" style="margin-bottom:20px;"><div class="section-title-group"><div class="section-stripe"></div><div class="section-title">How to Get Started</div></div></div>
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px;">
+        <div class="seller-step"><div class="step-num">1</div><div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">Register Your Account</h4><p style="font-size:13px;color:var(--text-secondary);">Sign up for free with your NID, TIN number (if applicable), and business information. Approval within 24 hours.</p></div></div>
+        <div class="seller-step"><div class="step-num">2</div><div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">List Your Products</h4><p style="font-size:13px;color:var(--text-secondary);">Upload products with photos, descriptions, and pricing. Use our bulk upload tool for large catalogs.</p></div></div>
+        <div class="seller-step"><div class="step-num">3</div><div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">Receive Orders</h4><p style="font-size:13px;color:var(--text-secondary);">Get notified instantly when customers place orders. Confirm and pack orders with our provided labels.</p></div></div>
+        <div class="seller-step"><div class="step-num">4</div><div><h4 style="font-size:14px;font-weight:700;margin-bottom:4px;">Get Paid</h4><p style="font-size:13px;color:var(--text-secondary);">Once order is delivered, receive payment within 24 hours directly to your account.</p></div></div>
+      </div>
+    </div>
+    <!-- Seller Plans -->
+    <div>
+      <div class="section-header" style="margin-bottom:20px;"><div class="section-title-group"><div class="section-stripe"></div><div class="section-title">Seller Plans</div></div></div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="plan-card">
+          <div style="font-size:16px;font-weight:800;margin-bottom:4px;">🌱 Basic Seller</div>
+          <div style="font-size:24px;font-weight:900;color:var(--primary);margin-bottom:8px;">Free</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">2.5% commission on sales</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.8;">✅ Up to 200 products<br/>✅ Basic analytics<br/>✅ Standard support</div>
+        </div>
+        <div class="plan-card featured">
+          <div style="font-size:16px;font-weight:800;margin-bottom:4px;">🚀 Pro Seller</div>
+          <div style="font-size:24px;font-weight:900;color:var(--primary);margin-bottom:8px;">৳999/month</div>
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">1.5% commission on sales</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.8;">✅ Unlimited products<br/>✅ Advanced analytics<br/>✅ Priority support<br/>✅ Featured listings<br/>✅ Flash sale access</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Form -->
+  <div id="seller-form" style="background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;max-width:700px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <h2 style="font-size:24px;font-weight:800;margin-bottom:8px;">🏪 Start Selling Today</h2>
+      <p style="font-size:13px;color:var(--text-muted);">Fill out the form below. Our team will review and approve your application within 24 hours.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div class="form-group"><label class="form-label">Business Name</label><input class="form-control" placeholder="Your store name" required/></div>
+      <div class="form-group"><label class="form-label">Owner Name</label><input class="form-control" placeholder="Full name" required/></div>
+    </div>
+    <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-control" placeholder="business@email.com" required/></div>
+    <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-control" placeholder="+880 17XXXXXXXX" required/></div>
+    <div class="form-group"><label class="form-label">Business Category</label><select class="form-control form-select"><option>Select category</option><option>Electronics & Gadgets</option><option>Fashion & Clothing</option><option>Beauty & Personal Care</option><option>Home & Furniture</option><option>Groceries & Food</option><option>Books & Stationery</option><option>Sports & Outdoors</option><option>Toys & Baby</option><option>Health & Wellness</option><option>Other</option></select></div>
+    <div class="form-group"><label class="form-label">Business Type</label><div style="display:flex;gap:12px;flex-wrap:wrap;"><label class="form-check"><input type="radio" name="btype" checked><label>Individual Seller</label></label><label class="form-check"><input type="radio" name="btype"><label>Small Business</label></label><label class="form-check"><input type="radio" name="btype"><label>Brand / Manufacturer</label></label></div></div>
+    <div class="form-group"><label class="form-label">Monthly Sales Target</label><select class="form-control form-select"><option>Select range</option><option>Under ৳50,000</option><option>৳50,000 – ৳2,00,000</option><option>৳2,00,000 – ৳10,00,000</option><option>Above ৳10,00,000</option></select></div>
+    <div class="form-group"><label class="form-label">Brief Description of Your Products</label><textarea class="form-control" rows="3" placeholder="Tell us about what you plan to sell..."></textarea></div>
+    <div class="form-check" style="margin-bottom:20px;"><input type="checkbox" id="seller-terms" required><label for="seller-terms">I agree to Dadar Shop's <a href="#" style="color:var(--primary)">Seller Terms of Service</a> and <a href="#" style="color:var(--primary)">Commission Policy</a></label></div>
+    <button class="btn btn-primary btn-block btn-lg" onclick="showToast('Application Submitted! 🎉','Thank you! Our team will review your application within 24 hours.','success')">🚀 Submit Seller Application</button>
+  </div>
+
+  <!-- Testimonials -->
+  <div style="margin-top:48px;">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div class="section-title">What Our Sellers Say</div></div></div>
+    <div class="grid-3">
+      <div class="review-card"><div class="review-header"><div class="reviewer-avatar" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));">R</div><div class="reviewer-info"><div class="name">Rahim Electronics</div><div class="meta">Electronics Seller · Dhaka</div></div><div class="review-stars"><div class="stars">★★★★★</div></div></div><p class="review-text">"Dadar Shop helped me grow my electronics business from ৳2 lakh/month to over ৳15 lakh/month in just 8 months. The platform is easy and the customer reach is amazing!"</p></div>
+      <div class="review-card"><div class="review-header"><div class="reviewer-avatar" style="background:linear-gradient(135deg,#8B2FC9,#D63384);">S</div><div class="reviewer-info"><div class="name">Sumaiya Fashion House</div><div class="meta">Fashion Seller · Chittagong</div></div><div class="review-stars"><div class="stars">★★★★★</div></div></div><p class="review-text">"I started selling sarees on Dadar Shop as a home business. Now I have 3 employees and ship nationwide. The logistics support is exceptional!"</p></div>
+      <div class="review-card"><div class="review-header"><div class="reviewer-avatar" style="background:linear-gradient(135deg,#11998e,#38ef7d);">K</div><div class="reviewer-info"><div class="name">Karim Organic Foods</div><div class="meta">Groceries Seller · Rajshahi</div></div><div class="review-stars"><div class="stars">★★★★☆</div></div></div><p class="review-text">"The platform is excellent for my organic food products. Fast payment settlement and great seller support. Revenue has increased 400% since joining!"</p></div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div></div><div class="footer-col"><h4>Seller Resources</h4><div class="footer-links"><a href="#">Seller Dashboard</a><a href="#">Seller Policy</a><a href="#">Commission Rates</a><a href="#">Seller Training</a><a href="help.html">Help Center</a><a href="contact.html">Contact Support</a></div></div><div class="footer-col"><h4>Buyers</h4><div class="footer-links"><a href="index.html">Shop Now</a><a href="categories.html">All Categories</a><a href="tracking.html">Track Order</a><a href="account.html">My Account</a><a href="wishlist.html">Wishlist</a></div></div><div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html">About Us</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Investors</a></div></div><div class="footer-col"><h4>Legal</h4><div class="footer-links"><a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Seller Agreement</a><a href="#">Cookie Policy</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div><div class="mobile-nav-item active"><i>🏪</i><span>Sell</span></div></div></nav>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Checkout - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.order-confirm { text-align:center; padding:40px 20px; }
+.order-confirm-icon { font-size:72px; margin-bottom:20px; }
+.order-confirm h2 { font-size:24px; font-weight:800; color:var(--success); margin-bottom:8px; }
+.order-confirm p { font-size:14px; color:var(--text-secondary); margin-bottom:20px; }
+.order-confirm-id { background:var(--bg); border-radius:var(--radius-md); padding:16px; margin:16px 0; display:inline-block; }
+.order-confirm-id strong { font-size:22px; color:var(--primary); }
+</style>
+</head>
+<body>
+<div class="toast-container"></div>
+<!-- Topbar -->
+<div class="topbar"><div class="container"><div class="topbar-left"><span>🔒 Secure Checkout</span><span class="topbar-divider">|</span><span>📞 Need help? Call 16345</span></div></div></div>
+<!-- Header -->
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Secure Checkout</span></div></a><div style="margin-left:auto;display:flex;align-items:center;gap:8px;color:white;font-size:13px;"><span>🔒 SSL Secured</span></div></div></header>
+
+<!-- Checkout Steps -->
+<div style="background:white;border-bottom:1px solid var(--border);padding:20px 0;">
+  <div class="container">
+    <div class="checkout-steps">
+      <div class="checkout-step active" id="step-0"><div class="step-circle">1</div><div class="step-label">Shipping Address</div></div>
+      <div class="checkout-step" id="step-1"><div class="step-circle">2</div><div class="step-label">Delivery Method</div></div>
+      <div class="checkout-step" id="step-2"><div class="step-circle">3</div><div class="step-label">Payment</div></div>
+      <div class="checkout-step" id="step-3"><div class="step-circle">4</div><div class="step-label">Review Order</div></div>
+      <div class="checkout-step" id="step-4"><div class="step-circle">✓</div><div class="step-label">Confirmation</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="padding:24px var(--container-padding);">
+  <div class="checkout-layout">
+    <!-- Left: Steps -->
+    <div>
+      <!-- Panel 0: Shipping Address -->
+      <div class="checkout-panel" id="panel-0">
+        <div class="checkout-card">
+          <h3><i>📍</i> Shipping Address</h3>
+          <div style="margin-bottom:16px;">
+            <h4 style="font-size:13px;font-weight:700;margin-bottom:10px;">Saved Addresses</h4>
+            <div class="address-cards">
+              <div class="address-card active">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+                  <span style="font-size:11px;background:var(--primary);color:white;padding:2px 6px;border-radius:var(--radius-full);font-weight:700;">HOME</span>
+                  <input type="radio" name="addr" checked/>
+                </div>
+                <div class="name">Rahim Uddin</div>
+                <div class="addr">Flat 4B, House 12, Road 5<br/>Dhanmondi, Dhaka 1209<br/>📞 01712-345678</div>
+              </div>
+              <div class="address-card">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+                  <span style="font-size:11px;background:var(--secondary);color:white;padding:2px 6px;border-radius:var(--radius-full);font-weight:700;">OFFICE</span>
+                  <input type="radio" name="addr"/>
+                </div>
+                <div class="name">Rahim Uddin (Office)</div>
+                <div class="addr">Level 8, Bashundhara City<br/>Panthapath, Dhaka 1215<br/>📞 01812-345678</div>
+              </div>
+            </div>
+            <button style="display:flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px dashed var(--border);border-radius:var(--radius-md);width:100%;background:none;cursor:pointer;font-size:13px;color:var(--primary);font-weight:600;margin-top:10px;">+ Add New Address</button>
+          </div>
+          <div style="border-top:1px solid var(--border);padding-top:16px;">
+            <h4 style="font-size:13px;font-weight:700;margin-bottom:12px;">Or enter new address</h4>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">First Name</label><input class="form-control" placeholder="First name"/></div>
+              <div class="form-group"><label class="form-label">Last Name</label><input class="form-control" placeholder="Last name"/></div>
+            </div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-control" placeholder="+880 17XXXXXXXX"/></div>
+            <div class="form-group"><label class="form-label">Address Line 1</label><input class="form-control" placeholder="House/Flat No., Road, Area"/></div>
+            <div class="form-group"><label class="form-label">Address Line 2 (Optional)</label><input class="form-control" placeholder="Apartment, suite, etc."/></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">City</label><select class="form-control form-select"><option>Dhaka</option><option>Chittagong</option><option>Sylhet</option><option>Rajshahi</option><option>Khulna</option><option>Barisal</option></select></div>
+              <div class="form-group"><label class="form-label">Postal Code</label><input class="form-control" placeholder="1200"/></div>
+            </div>
+            <div class="form-check"><input type="checkbox" id="save-addr" checked><label for="save-addr">Save this address for future orders</label></div>
+          </div>
+          <div style="margin-top:20px;">
+            <button class="btn btn-primary btn-block next-step" onclick="goStep(1)">Continue to Delivery →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 1: Delivery Method -->
+      <div class="checkout-panel" id="panel-1" style="display:none;">
+        <div class="checkout-card">
+          <h3><i>🚚</i> Delivery Method</h3>
+          <div class="delivery-options">
+            <div class="delivery-option active">
+              <div class="delivery-option-icon">⚡</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Express Delivery</div><div style="font-size:12px;color:var(--text-muted);">Delivered by tomorrow</div></div>
+              <div style="text-align:right;"><div style="font-size:14px;font-weight:700;color:var(--primary);">৳60</div></div>
+            </div>
+            <div class="delivery-option">
+              <div class="delivery-option-icon">🚚</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Standard Delivery</div><div style="font-size:12px;color:var(--text-muted);">3-5 working days</div></div>
+              <div style="text-align:right;"><div style="font-size:14px;font-weight:700;color:var(--success);">FREE</div></div>
+            </div>
+            <div class="delivery-option">
+              <div class="delivery-option-icon">🏪</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Pickup from Store</div><div style="font-size:12px;color:var(--text-muted);">Ready in 2 hours at Dhanmondi store</div></div>
+              <div style="text-align:right;"><div style="font-size:14px;font-weight:700;color:var(--success);">FREE</div></div>
+            </div>
+          </div>
+          <div style="margin-top:20px;display:flex;gap:12px;">
+            <button class="btn btn-light prev-step" onclick="goStep(0)">← Back</button>
+            <button class="btn btn-primary" style="flex:1;" onclick="goStep(2)">Continue to Payment →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Payment -->
+      <div class="checkout-panel" id="panel-2" style="display:none;">
+        <div class="checkout-card">
+          <h3><i>💳</i> Payment Method</h3>
+          <div class="payment-methods">
+            <div class="payment-method active">
+              <div class="payment-icon">💵</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Cash on Delivery (COD)</div><div style="font-size:12px;color:var(--text-muted);">Pay when you receive your order</div></div>
+              <input type="radio" name="pay" checked/>
+            </div>
+            <div class="payment-method">
+              <div class="payment-icon">📱</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">bKash</div><div style="font-size:12px;color:var(--text-muted);">Pay instantly via bKash mobile banking</div></div>
+              <input type="radio" name="pay"/>
+            </div>
+            <div class="payment-method">
+              <div class="payment-icon">📱</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Nagad</div><div style="font-size:12px;color:var(--text-muted);">Pay instantly via Nagad mobile banking</div></div>
+              <input type="radio" name="pay"/>
+            </div>
+            <div class="payment-method">
+              <div class="payment-icon">💳</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Credit / Debit Card</div><div style="font-size:12px;color:var(--text-muted);">Visa, Mastercard, AMEX supported</div></div>
+              <input type="radio" name="pay"/>
+            </div>
+            <div class="payment-method">
+              <div class="payment-icon">🏦</div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:700;">Net Banking</div><div style="font-size:12px;color:var(--text-muted);">All major banks supported</div></div>
+              <input type="radio" name="pay"/>
+            </div>
+          </div>
+          <div style="background:var(--bg);border-radius:var(--radius-md);padding:14px;margin-top:16px;font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:8px;">
+            🔒 Your payment information is encrypted and secure
+          </div>
+          <div style="margin-top:20px;display:flex;gap:12px;">
+            <button class="btn btn-light prev-step" onclick="goStep(1)">← Back</button>
+            <button class="btn btn-primary" style="flex:1;" onclick="goStep(3)">Review Order →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Review -->
+      <div class="checkout-panel" id="panel-3" style="display:none;">
+        <div class="checkout-card">
+          <h3><i>📋</i> Review Your Order</h3>
+          <div style="border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;margin-bottom:16px;">
+            <div style="padding:14px 16px;background:var(--bg);font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;">Order Items</div>
+            <div id="review-items">
+              <div style="display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border-light);">
+                <div style="width:60px;height:60px;background:var(--bg);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">📱</div>
+                <div style="flex:1;"><div style="font-size:13px;font-weight:600;">Samsung Galaxy A55 5G 256GB</div><div style="font-size:11px;color:var(--text-muted);">Color: Awesome Navy · Qty: 1</div></div>
+                <div style="font-size:14px;font-weight:700;color:var(--primary);">৳28,999</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+            <div style="background:var(--bg);border-radius:var(--radius-md);padding:12px;"><div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:6px;">SHIPPING TO</div><div style="font-size:12px;">Rahim Uddin<br/>Flat 4B, House 12, Road 5<br/>Dhanmondi, Dhaka 1209</div></div>
+            <div style="background:var(--bg);border-radius:var(--radius-md);padding:12px;"><div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:6px;">PAYMENT</div><div style="font-size:12px;">💵 Cash on Delivery</div><div style="font-size:11px;font-weight:700;color:var(--text-muted);margin-top:8px;">DELIVERY</div><div style="font-size:12px;">🚚 Express (Tomorrow)</div></div>
+          </div>
+
+          <div style="margin-top:20px;display:flex;gap:12px;">
+            <button class="btn btn-light prev-step" onclick="goStep(2)">← Back</button>
+            <button class="btn btn-primary btn-lg" style="flex:1;" onclick="placeOrder()">🎉 Place Order Now</button>
+          </div>
+          <div style="text-align:center;font-size:11px;color:var(--text-muted);margin-top:10px;">By placing your order, you agree to our Terms of Service and Privacy Policy</div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Confirmation -->
+      <div class="checkout-panel" id="panel-4" style="display:none;">
+        <div class="checkout-card">
+          <div class="order-confirm">
+            <div class="order-confirm-icon">🎉</div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Thank you for shopping with Dadar Shop. Your order has been confirmed and will be delivered soon.</p>
+            <div class="order-confirm-id">
+              <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px;">Your Order ID</div>
+              <strong>#DS-<span id="confirm-order-id">24891</span></strong>
+            </div>
+            <div style="background:var(--bg);border-radius:var(--radius-md);padding:16px;margin:16px 0;font-size:13px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Estimated Delivery:</span><strong>Tomorrow by 8PM</strong></div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Payment Method:</span><strong>Cash on Delivery</strong></div>
+              <div style="display:flex;justify-content:space-between;"><span>Order Total:</span><strong style="color:var(--primary);">৳29,059</strong></div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <a href="tracking.html" class="btn btn-primary">🗺️ Track My Order</a>
+              <a href="account.html" class="btn btn-light">View in My Orders</a>
+              <a href="index.html" class="btn btn-light">Continue Shopping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Order Summary -->
+    <div>
+      <div class="order-summary" style="position:sticky;top:130px;">
+        <div class="order-summary-header"><h3>📋 Order Summary</h3></div>
+        <div class="order-summary-body">
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+            <div style="display:flex;gap:10px;align-items:center;">
+              <div style="width:48px;height:48px;background:var(--bg);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">📱</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:600;">Samsung Galaxy A55 5G</div><div style="font-size:11px;color:var(--text-muted);">256GB · Qty: 1</div></div>
+              <div style="font-size:13px;font-weight:700;color:var(--primary);">৳28,999</div>
+            </div>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--border);margin:12px 0;"/>
+          <div class="summary-coupon">
+            <div class="coupon-row"><input class="coupon-input" placeholder="Coupon code"/><button class="btn-apply">Apply</button></div>
+          </div>
+          <div class="summary-line"><span>Subtotal:</span><span>৳28,999</span></div>
+          <div class="summary-line"><span>Delivery:</span><span>৳60</span></div>
+          <div class="summary-line"><span>VAT (5%):</span><span>৳1,450</span></div>
+          <div class="summary-line total"><span>Total:</span><span>৳30,509</span></div>
+          <div style="background:#e6f9ed;border-radius:var(--radius);padding:8px 12px;font-size:12px;color:var(--success);margin-top:8px;">🎉 You saved ৳53,990 on this order!</div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div style="background:white;border:1px solid var(--border);border-radius:var(--radius-md);padding:16px;margin-top:16px;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span>🔒</span>SSL Encrypted Checkout</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span>✅</span>100% Genuine Products</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span>↩️</span>Easy 7-Day Returns</div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;"><span>🤝</span>Buyer Protection Guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="margin-top:40px;"><div class="container"><div class="footer-top" style="grid-template-columns:1fr 1fr 1fr;"><div class="footer-col"><h4>Need Help?</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="tracking.html">Track Order</a><a href="contact.html">Contact Us</a></div></div><div class="footer-col" style="text-align:center;"><div class="logo" style="justify-content:center;margin-bottom:8px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span></div></div><p style="font-size:11px;color:var(--text-muted);">🔒 SSL Secured & Encrypted</p></div><div class="footer-col" style="text-align:right;"><div class="footer-payment-icons" style="justify-content:flex-end;"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">VISA</span><span class="payment-icon">COD</span></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p></div></div></footer>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" data-href="cart.html"><i>🛒</i><span>Cart</span></div><div class="mobile-nav-item active" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+
+<script src="js/main.js"></script>
+<script>
+function goStep(n) {
+  const steps = document.querySelectorAll('.checkout-step');
+  const panels = document.querySelectorAll('.checkout-panel');
+  steps.forEach((s,i) => { s.classList.toggle('active', i===n); s.classList.toggle('completed', i<n); });
+  panels.forEach((p,i) => p.style.display = i===n ? 'block' : 'none');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function placeOrder() {
+  const orderId = Math.floor(10000 + Math.random()*90000);
+  document.getElementById('confirm-order-id').textContent = orderId;
+  cart.length = 0;
+  saveCart();
+  updateCartCount();
+  goStep(4);
+  showToast('Order Placed!','Your order #DS-'+orderId+' is confirmed!','success');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>My Account - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.account-panel { display:none; }
+.account-panel.active { display:block; }
+.wishlist-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+@media(max-width:768px){ .wishlist-grid { grid-template-columns:repeat(2,1fr); } }
+.address-form-card { border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; margin-bottom:12px; }
+.points-bar { height:10px; background:var(--border); border-radius:5px; overflow:hidden; margin:8px 0; }
+.points-fill { height:100%; background:linear-gradient(to right,var(--primary),var(--accent)); border-radius:5px; }
+</style>
+</head>
+<body>
+<div class="toast-container"></div>
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Deliver to: <a href="#">Dhaka</a></span><span class="topbar-divider">|</span><span>📞 16345</span><span class="topbar-divider">|</span><span>Free delivery above ৳1000</span></div><div class="topbar-right"><a href="seller.html">Sell on Dadar</a><span class="topbar-divider">|</span><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Logout</a></div></div></div>
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option><option>Beauty</option><option>Groceries</option><option>Home</option></select><input type="text" class="search-input" placeholder="Search products, brands and more..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="notif-dropdown-wrapper"><div class="header-action-btn notif-btn"><span>🔔</span><span>Alerts</span><span class="badge">3</span></div><div class="notif-dropdown"><div class="notif-header"><h4>Notifications</h4><span class="notif-mark-all">Mark all read</span></div><div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics!</p><div class="time">2 min ago</div></div></div><div class="notif-footer"><a href="#">View all notifications</a></div></div></div><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="account-dropdown-wrapper"><div class="header-action-btn account-btn" style="background:rgba(255,255,255,0.2);"><span>👤</span><span>Account</span></div><div class="account-dropdown"><div class="account-dropdown-header"><div class="name">Hello, User</div><div class="email">user@email.com</div></div><div class="account-dropdown-links"><a href="account.html"><i>👤</i> My Account</a><a href="account.html"><i>📦</i> My Orders</a><a href="wishlist.html"><i>❤️</i> Wishlist</a><a href="tracking.html"><i>🗺️</i> Track Order</a><a href="login.html"><i>🔑</i> Logout</a></div></div></div></div></div></header>
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active" data-cat="0"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item" data-cat="1"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item" data-cat="2"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item" data-cat="3"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item" data-cat="4"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div><div class="mega-menu-item" data-cat="5"><div class="mega-menu-item-left"><i>📚</i> Books</div> ›</div><div class="mega-menu-item" data-cat="6"><div class="mega-menu-item-left"><i>⚽</i> Sports</div> ›</div><div class="mega-menu-item" data-cat="7"><div class="mega-menu-item-left"><i>🧸</i> Toys & Baby</div> ›</div><div class="mega-menu-item" data-cat="8"><div class="mega-menu-item-left"><i>🚗</i> Automotive</div> ›</div><div class="mega-menu-item" data-cat="9"><div class="mega-menu-item-left"><i>🌿</i> Health</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics">Samsung</a><a href="category.html?cat=electronics">iPhone</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics">Laptops</a><a href="category.html?cat=electronics">Tablets</a></div><div class="mega-sub-group"><h5>Audio & TV</h5><a href="category.html?cat=electronics">Headphones</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Men's</h5><a href="category.html?cat=fashion">T-Shirts</a></div><div class="mega-sub-group"><h5>Women's</h5><a href="category.html?cat=fashion">Sarees</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Skincare</h5><a href="category.html?cat=beauty">Face Wash</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Furniture</h5><a href="category.html?cat=home">Sofas</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Groceries</h5><a href="category.html?cat=groceries">All Items</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Books</h5><a href="category.html?cat=books">Academic</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Sports</h5><a href="category.html?cat=sports">Cricket</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Toys</h5><a href="category.html?cat=toys">Action Figures</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Automotive</h5><a href="category.html?cat=automotive">Accessories</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Health</h5><a href="category.html?cat=health">Supplements</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link nav-link-hot">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a><a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a><a href="category.html?cat=groceries" class="nav-link">🥕 Groceries</a><a href="blog.html" class="nav-link">📝 Blog</a></div></div></nav>
+<!-- Page Hero -->
+<div class="page-hero"><div class="container"><div class="page-hero-content"><h1>👤 My Account</h1><div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">My Account</span></div></div></div></div>
+
+<div class="container" style="padding:24px var(--container-padding);">
+  <div class="account-layout">
+    <!-- Sidebar -->
+    <div>
+      <div class="account-sidebar">
+        <div class="account-sidebar-header">
+          <div class="account-avatar">R</div>
+          <div class="account-name">Rahim Uddin</div>
+          <div class="account-email">rahim@example.com</div>
+          <div class="account-points">⭐ 1,240 Points <span style="opacity:0.7;">· Gold Member</span></div>
+        </div>
+        <div class="account-nav">
+          <div class="account-nav-item active" data-panel="panel-dashboard"><i>📊</i> Dashboard</div>
+          <div class="account-nav-item" data-panel="panel-orders"><i>📦</i> My Orders</div>
+          <div class="account-nav-item" data-panel="panel-wishlist"><i>❤️</i> Wishlist</div>
+          <div class="account-nav-item" data-panel="panel-reviews"><i>⭐</i> My Reviews</div>
+          <div class="account-nav-item" data-panel="panel-addresses"><i>📍</i> Addresses</div>
+          <div class="account-nav-divider"></div>
+          <div class="account-nav-item" data-panel="panel-payments"><i>💳</i> Payment Methods</div>
+          <div class="account-nav-item" data-panel="panel-points"><i>🏆</i> Reward Points</div>
+          <div class="account-nav-item" data-panel="panel-coupons"><i>🏷️</i> My Coupons</div>
+          <div class="account-nav-item" data-panel="panel-notifications"><i>🔔</i> Notifications</div>
+          <div class="account-nav-item" data-panel="panel-tickets"><i>🎫</i> Support Tickets</div>
+          <div class="account-nav-divider"></div>
+          <div class="account-nav-item" data-panel="panel-settings"><i>⚙️</i> Account Settings</div>
+          <div class="account-nav-item" onclick="showToast('Logged Out','You have been signed out.','info');setTimeout(()=>window.location.href='login.html',1200)"><i>🚪</i> Logout</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="account-main">
+
+      <!-- Dashboard -->
+      <div class="account-panel active" id="panel-dashboard">
+        <div class="stat-cards">
+          <div class="stat-card" onclick="document.querySelector('[data-panel=panel-orders]').click()">
+            <div class="stat-icon" style="background:#fff0e6;"><span style="font-size:22px;">📦</span></div>
+            <div class="stat-num">12</div>
+            <div class="stat-label">Total Orders</div>
+          </div>
+          <div class="stat-card" onclick="document.querySelector('[data-panel=panel-wishlist]').click()">
+            <div class="stat-icon" style="background:#ffe6f0;"><span style="font-size:22px;">❤️</span></div>
+            <div class="stat-num" id="dash-wishlist">0</div>
+            <div class="stat-label">Wishlist Items</div>
+          </div>
+          <div class="stat-card" onclick="document.querySelector('[data-panel=panel-reviews]').click()">
+            <div class="stat-icon" style="background:#fff8e6;"><span style="font-size:22px;">⭐</span></div>
+            <div class="stat-num">5</div>
+            <div class="stat-label">Reviews Written</div>
+          </div>
+          <div class="stat-card" onclick="document.querySelector('[data-panel=panel-points]').click()">
+            <div class="stat-icon" style="background:#e6ffe6;"><span style="font-size:22px;">🏆</span></div>
+            <div class="stat-num">1,240</div>
+            <div class="stat-label">Reward Points</div>
+          </div>
+        </div>
+
+        <!-- Recent Orders -->
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>📦</i> Recent Orders</h3><a href="#" onclick="document.querySelector('[data-panel=panel-orders]').click();return false;" style="font-size:12px;color:var(--primary);">View All →</a></div>
+          <div class="account-card-body" style="padding:0;">
+            <div class="order-item">
+              <div><div class="order-id">#DS-24891</div><div class="order-date">June 16, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>📱</span></div><div style="font-size:12px;">Samsung Galaxy A55 5G<br/><span style="color:var(--text-muted);">+ 1 more item</span></div></div>
+              <span class="order-status status-shipped">Shipped</span>
+              <div class="order-total">৳47,559</div>
+              <div class="order-actions"><button class="btn btn-sm btn-outline" onclick="window.location.href='tracking.html'">Track</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-24102</div><div class="order-date">June 10, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>👟</span></div><div style="font-size:12px;">Nike Air Max 270<br/><span style="color:var(--text-muted);">Size: 42</span></div></div>
+              <span class="order-status status-delivered">Delivered</span>
+              <div class="order-total">৳7,200</div>
+              <div class="order-actions"><button class="btn btn-sm btn-light" onclick="showToast('Review','Opening review form...','info')">Review</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-23456</div><div class="order-date">June 2, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>🧴</span></div><div style="font-size:12px;">Neutrogena Hydro Boost</div></div>
+              <span class="order-status status-delivered">Delivered</span>
+              <div class="order-total">৳1,850</div>
+              <div class="order-actions"><button class="btn btn-sm btn-light" onclick="addToCart({id:'neutro-rep',name:'Neutrogena Hydro Boost',price:1850,emoji:'🧴'});showToast('Added!','Item added to cart','success')">Reorder</button></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile Summary -->
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>👤</i> Profile Info</h3><button class="btn btn-sm btn-outline" onclick="document.querySelector('[data-panel=panel-settings]').click()">Edit</button></div>
+          <div class="account-card-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13px;">
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Full Name</div><strong>Rahim Uddin</strong></div>
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Email</div><strong>rahim@example.com</strong></div>
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Phone</div><strong>+880 1712-345678</strong></div>
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Member Since</div><strong>January 2024</strong></div>
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Membership</div><strong style="color:var(--accent);">🥇 Gold Member</strong></div>
+              <div><div style="color:var(--text-muted);margin-bottom:4px;">Total Saved</div><strong style="color:var(--success);">৳24,590</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders -->
+      <div class="account-panel" id="panel-orders">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>📦</i> My Orders</h3>
+            <div style="display:flex;gap:8px;">
+              <select class="form-control form-select" style="font-size:12px;padding:6px 28px 6px 10px;height:auto;">
+                <option>All Orders</option>
+                <option>Pending</option>
+                <option>Processing</option>
+                <option>Shipped</option>
+                <option>Delivered</option>
+                <option>Cancelled</option>
+              </select>
+            </div>
+          </div>
+          <div class="account-card-body" style="padding:0;">
+            <div class="order-item">
+              <div><div class="order-id">#DS-24891</div><div class="order-date">June 16, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>📱</span></div><div style="font-size:12px;">Samsung Galaxy A55 5G + 1 more</div></div>
+              <span class="order-status status-shipped">🚚 Shipped</span>
+              <div class="order-total">৳47,559</div>
+              <div class="order-actions"><button class="btn btn-sm btn-primary" onclick="window.location.href='tracking.html'">Track</button><button class="btn btn-sm btn-light">Details</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-24102</div><div class="order-date">June 10, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>👟</span></div><div style="font-size:12px;">Nike Air Max 270 React</div></div>
+              <span class="order-status status-delivered">✅ Delivered</span>
+              <div class="order-total">৳7,200</div>
+              <div class="order-actions"><button class="btn btn-sm btn-outline" onclick="showToast('Review','Opening review...','info')">Write Review</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-23789</div><div class="order-date">May 28, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>💻</span></div><div style="font-size:12px;">ASUS VivoBook 15</div></div>
+              <span class="order-status status-delivered">✅ Delivered</span>
+              <div class="order-total">৳42,500</div>
+              <div class="order-actions"><button class="btn btn-sm btn-light">Details</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-23456</div><div class="order-date">June 2, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>🧴</span></div><div style="font-size:12px;">Neutrogena Hydro Boost</div></div>
+              <span class="order-status status-delivered">✅ Delivered</span>
+              <div class="order-total">৳1,850</div>
+              <div class="order-actions"><button class="btn btn-sm btn-light" onclick="addToCart({id:'neutro',name:'Neutrogena Hydro Boost',price:1850,emoji:'🧴'});showToast('Added!','','success')">Reorder</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#DS-22100</div><div class="order-date">May 15, 2025</div></div>
+              <div class="order-preview"><div class="order-product-img"><span>🎧</span></div><div style="font-size:12px;">Sony WH-1000XM5</div></div>
+              <span class="order-status status-cancelled">❌ Cancelled</span>
+              <div class="order-total">৳18,500</div>
+              <div class="order-actions"><button class="btn btn-sm btn-outline" onclick="addToCart({id:'xm5-2',name:'Sony WH-1000XM5',price:18500,emoji:'🎧'});showToast('Added!','','success')">Re-order</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wishlist -->
+      <div class="account-panel" id="panel-wishlist">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>❤️</i> My Wishlist (<span id="wishlist-count-acc">0</span>)</h3></div>
+          <div class="account-card-body">
+            <div id="wishlist-grid-acc" class="wishlist-grid">
+              <div class="empty-state" style="grid-column:span 4;padding:40px;">
+                <div class="empty-icon">❤️</div>
+                <div class="empty-title">Your wishlist is empty</div>
+                <div class="empty-desc">Save items you love to your wishlist!</div>
+                <a href="index.html" class="btn btn-primary btn-sm">Explore Products</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reviews -->
+      <div class="account-panel" id="panel-reviews">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>⭐</i> My Reviews</h3></div>
+          <div class="account-card-body" style="padding:0;">
+            <div style="padding:16px 20px;border-bottom:1px solid var(--border-light);">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:56px;height:56px;background:var(--bg);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">📱</div>
+                <div style="flex:1;"><div style="font-size:13px;font-weight:600;margin-bottom:4px;">Samsung Galaxy A55 5G</div><div class="stars" style="font-size:14px;margin-bottom:6px;">★★★★★</div><p style="font-size:13px;color:var(--text-secondary);">"Fantastic phone! AMOLED display is gorgeous, cameras top-notch."</p><div style="font-size:11px;color:var(--text-muted);margin-top:6px;">June 12, 2025</div></div>
+              </div>
+            </div>
+            <div style="padding:16px 20px;">
+              <div style="display:flex;gap:12px;align-items:flex-start;">
+                <div style="width:56px;height:56px;background:var(--bg);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">👟</div>
+                <div style="flex:1;"><div style="font-size:13px;font-weight:600;margin-bottom:4px;">Nike Air Max 270</div><div class="stars" style="font-size:14px;margin-bottom:6px;">★★★★★</div><p style="font-size:13px;color:var(--text-secondary);">"Very comfortable, true to size. Great quality for the price!"</p><div style="font-size:11px;color:var(--text-muted);margin-top:6px;">June 11, 2025</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Addresses -->
+      <div class="account-panel" id="panel-addresses">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>📍</i> Saved Addresses</h3><button class="btn btn-sm btn-primary" onclick="showToast('Add Address','Address form opening...','info')">+ Add New</button></div>
+          <div class="account-card-body">
+            <div class="address-form-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;"><span style="background:var(--primary);color:white;font-size:11px;padding:2px 8px;border-radius:var(--radius-full);font-weight:700;">HOME · DEFAULT</span><div style="display:flex;gap:8px;"><button class="btn btn-sm btn-light" onclick="showToast('Edit','Opening editor...','info')">Edit</button></div></div>
+              <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Rahim Uddin</div>
+              <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Flat 4B, House 12, Road 5<br/>Dhanmondi, Dhaka 1209<br/>📞 01712-345678</div>
+            </div>
+            <div class="address-form-card">
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;"><span style="background:var(--secondary);color:white;font-size:11px;padding:2px 8px;border-radius:var(--radius-full);font-weight:700;">OFFICE</span><div style="display:flex;gap:8px;"><button class="btn btn-sm btn-light" onclick="showToast('Edit','Opening editor...','info')">Edit</button><button class="btn btn-sm btn-danger btn-sm" onclick="showToast('Deleted','Address removed.','info')">Delete</button></div></div>
+              <div style="font-size:13px;font-weight:700;margin-bottom:4px;">Rahim Uddin</div>
+              <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Level 8, Bashundhara City, Panthapath<br/>Dhaka 1215<br/>📞 01812-345678</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="account-panel" id="panel-payments">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>💳</i> Payment Methods</h3><button class="btn btn-sm btn-primary" onclick="showToast('Add','Adding payment method...','info')">+ Add Card</button></div>
+          <div class="account-card-body">
+            <div style="border:1px solid var(--border);border-radius:var(--radius-md);padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+              <div style="font-size:32px;">💳</div>
+              <div style="flex:1;"><div style="font-weight:700;font-size:13px;">Visa •••• •••• •••• 4242</div><div style="font-size:12px;color:var(--text-muted);">Expires 12/2026 · Default</div></div>
+              <button class="btn btn-sm btn-light" onclick="showToast('Removed','Card removed.','info')">Remove</button>
+            </div>
+            <div style="border:1px solid var(--border);border-radius:var(--radius-md);padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+              <div style="font-size:32px;">📱</div>
+              <div style="flex:1;"><div style="font-weight:700;font-size:13px;">bKash: 01712-345678</div><div style="font-size:12px;color:var(--text-muted);">Linked & Verified</div></div>
+              <button class="btn btn-sm btn-light" onclick="showToast('Removed','bKash removed.','info')">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reward Points -->
+      <div class="account-panel" id="panel-points">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>🏆</i> Reward Points</h3></div>
+          <div class="account-card-body">
+            <div style="text-align:center;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:20px;">
+              <div style="font-size:52px;font-weight:900;color:var(--primary);">1,240</div>
+              <div style="font-size:14px;color:var(--text-muted);margin-top:4px;">Available Points · Worth ৳124</div>
+              <div style="margin-top:16px;background:var(--bg);border-radius:var(--radius-md);padding:12px;display:inline-block;min-width:280px;">
+                <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px;"><span>Gold Member</span><span>2,000 pts for Platinum</span></div>
+                <div class="points-bar"><div class="points-fill" style="width:62%"></div></div>
+                <div style="font-size:11px;color:var(--text-muted);margin-top:4px;">760 more points to reach Platinum</div>
+              </div>
+            </div>
+            <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;">Points History</h4>
+            <div style="display:flex;flex-direction:column;gap:0;">
+              <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-light);font-size:13px;"><span>🛍️ Order #DS-24891</span><span style="color:var(--success);font-weight:700;">+290 pts</span></div>
+              <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-light);font-size:13px;"><span>🛍️ Order #DS-24102</span><span style="color:var(--success);font-weight:700;">+72 pts</span></div>
+              <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border-light);font-size:13px;"><span>✏️ Review Bonus</span><span style="color:var(--success);font-weight:700;">+50 pts</span></div>
+              <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:13px;"><span>🎁 Referral Bonus</span><span style="color:var(--success);font-weight:700;">+200 pts</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Coupons -->
+      <div class="account-panel" id="panel-coupons">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>🏷️</i> My Coupons</h3></div>
+          <div class="account-card-body">
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="border:2px dashed var(--primary);border-radius:var(--radius-md);padding:16px;display:flex;align-items:center;justify-content:space-between;">
+                <div><div style="font-size:18px;font-weight:900;color:var(--primary);letter-spacing:2px;">DADAR10</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">10% off on all orders · Expires Jun 30</div></div>
+                <button class="btn btn-outline btn-sm" onclick="navigator.clipboard.writeText('DADAR10');showToast('Copied!','Coupon DADAR10 copied.','success')">Copy</button>
+              </div>
+              <div style="border:2px dashed var(--success);border-radius:var(--radius-md);padding:16px;display:flex;align-items:center;justify-content:space-between;">
+                <div><div style="font-size:18px;font-weight:900;color:var(--success);letter-spacing:2px;">WELCOME50</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">৳50 off on first order · Expires Jul 15</div></div>
+                <button class="btn btn-sm" style="border:1px solid var(--success);color:var(--success);background:white;" onclick="navigator.clipboard.writeText('WELCOME50');showToast('Copied!','Coupon WELCOME50 copied.','success')">Copy</button>
+              </div>
+              <div style="border:2px dashed var(--border);border-radius:var(--radius-md);padding:16px;display:flex;align-items:center;justify-content:space-between;opacity:0.5;">
+                <div><div style="font-size:18px;font-weight:900;letter-spacing:2px;">FLASH25</div><div style="font-size:12px;color:var(--text-muted);margin-top:4px;">25% off flash sale items · Expired</div></div>
+                <span style="font-size:12px;color:var(--danger);font-weight:700;">Expired</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="account-panel" id="panel-notifications">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>🔔</i> Notifications</h3><button class="btn btn-sm btn-light" onclick="document.querySelectorAll('.notif-item').forEach(i=>i.classList.remove('unread'))">Mark All Read</button></div>
+          <div class="account-card-body" style="padding:0;">
+            <div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics — Starting now!</p><div class="time">2 minutes ago</div></div></div>
+            <div class="notif-item unread"><div class="notif-icon green">✅</div><div class="notif-body"><p>Your order <strong>#DS-24891</strong> has been shipped! Expected delivery tomorrow.</p><div class="time">1 hour ago</div></div></div>
+            <div class="notif-item unread"><div class="notif-icon blue">💙</div><div class="notif-body"><p>Item in your wishlist is now <strong>30% off</strong>! Grab it before it sells out.</p><div class="time">3 hours ago</div></div></div>
+            <div class="notif-item"><div class="notif-icon" style="background:#f0f0f0;"><span>⭐</span></div><div class="notif-body"><p>You earned <strong>290 reward points</strong> from your last order. Total: 1,240 pts.</p><div class="time">1 day ago</div></div></div>
+            <div class="notif-item"><div class="notif-icon orange">🎁</div><div class="notif-body"><p>Your exclusive coupon <strong>DADAR10</strong> is now active! Use it on your next purchase.</p><div class="time">2 days ago</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support Tickets -->
+      <div class="account-panel" id="panel-tickets">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>🎫</i> Support Tickets</h3><button class="btn btn-sm btn-primary" onclick="showToast('Ticket','Opening new ticket form...','info')">+ New Ticket</button></div>
+          <div class="account-card-body" style="padding:0;">
+            <div class="order-item">
+              <div><div class="order-id">#TKT-1892</div><div class="order-date">June 14, 2025</div></div>
+              <div style="font-size:12px;flex:1;">Delayed delivery for order #DS-24891</div>
+              <span class="order-status status-processing">In Progress</span>
+              <div class="order-actions"><button class="btn btn-sm btn-light">View</button></div>
+            </div>
+            <div class="order-item">
+              <div><div class="order-id">#TKT-1756</div><div class="order-date">May 20, 2025</div></div>
+              <div style="font-size:12px;flex:1;">Refund request for cancelled order</div>
+              <span class="order-status status-delivered">Resolved</span>
+              <div class="order-actions"><button class="btn btn-sm btn-light">View</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div class="account-panel" id="panel-settings">
+        <div class="account-card">
+          <div class="account-card-header"><h3><i>⚙️</i> Account Settings</h3></div>
+          <div class="account-card-body">
+            <h4 style="font-size:14px;font-weight:700;margin-bottom:16px;">Personal Information</h4>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+              <div class="form-group"><label class="form-label">First Name</label><input class="form-control" value="Rahim"/></div>
+              <div class="form-group"><label class="form-label">Last Name</label><input class="form-control" value="Uddin"/></div>
+            </div>
+            <div class="form-group"><label class="form-label">Email Address</label><input class="form-control" type="email" value="rahim@example.com"/></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-control" type="tel" value="+880 1712-345678"/></div>
+            <div class="form-group"><label class="form-label">Date of Birth</label><input class="form-control" type="date" value="1990-05-15"/></div>
+            <div class="form-group"><label class="form-label">Gender</label><select class="form-control form-select"><option>Male</option><option>Female</option><option>Prefer not to say</option></select></div>
+            <button class="btn btn-primary" onclick="showToast('Saved!','Profile updated successfully.','success')">Save Changes</button>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;"/>
+            <h4 style="font-size:14px;font-weight:700;margin-bottom:16px;">Change Password</h4>
+            <div class="form-group"><label class="form-label">Current Password</label><div class="password-toggle"><input type="password" class="form-control" placeholder="Enter current password"/><span class="toggle-pass">👁️</span></div></div>
+            <div class="form-group"><label class="form-label">New Password</label><div class="password-toggle"><input type="password" class="form-control" placeholder="Enter new password"/><span class="toggle-pass">👁️</span></div></div>
+            <div class="form-group"><label class="form-label">Confirm New Password</label><div class="password-toggle"><input type="password" class="form-control" placeholder="Confirm new password"/><span class="toggle-pass">👁️</span></div></div>
+            <button class="btn btn-secondary" onclick="showToast('Password Updated!','Your password has been changed.','success')">Update Password</button>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;"/>
+            <h4 style="font-size:14px;font-weight:700;margin-bottom:16px;">Notification Preferences</h4>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:13px;font-weight:600;">Order Updates</div><div style="font-size:12px;color:var(--text-muted);">Shipping, delivery, cancellation alerts</div></div><input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);"/></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:13px;font-weight:600;">Flash Sale Alerts</div><div style="font-size:12px;color:var(--text-muted);">Be first to know about flash sales</div></div><input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);"/></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:13px;font-weight:600;">Wishlist Price Drop</div><div style="font-size:12px;color:var(--text-muted);">When wishlist items go on sale</div></div><input type="checkbox" checked style="width:18px;height:18px;accent-color:var(--primary);"/></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:13px;font-weight:600;">Newsletter</div><div style="font-size:12px;color:var(--text-muted);">Weekly deals and recommendations</div></div><input type="checkbox" style="width:18px;height:18px;accent-color:var(--primary);"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home & Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer"><div class="cart-drawer-header"><h3>🛒 Cart (<span class="cart-count">0</span>)</h3><button class="cart-close-btn" onclick="closeCart()">✕</button></div><div class="cart-drawer-body"></div><div class="cart-drawer-footer"><div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div><div class="cart-summary-row"><span>Delivery:</span><span>৳60</span></div><div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div><button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button><a href="cart.html" style="display:block;text-align:center;font-size:12px;color:var(--text-muted);margin-top:8px;">View Full Cart</a></div></div>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span><span class="mobile-cart-count">0</span></div><div class="mobile-nav-item active" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Update dashboard wishlist count
+  document.getElementById('dash-wishlist').textContent = wishlist.length;
+  document.getElementById('wishlist-count-acc').textContent = wishlist.length;
+
+  // Render wishlist
+  const grid = document.getElementById('wishlist-grid-acc');
+  if (wishlist.length > 0) {
+    grid.innerHTML = wishlist.map(item => `
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>${item.emoji||'📦'}</span></div>
+        <div class="product-card-body"><div class="product-name">${item.name}</div></div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'${item.id}',name:'${item.name}',price:999,emoji:'${item.emoji||'📦'}'})">+ Cart</button>
+        </div>
+      </div>`).join('');
+  }
+});
+</script>
+</body>
+</html>

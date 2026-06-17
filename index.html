@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dadar Shop - Your Trusted Online Marketplace</title>
+<meta name="description" content="Dadar Shop - Bangladesh's most trusted online marketplace. Shop electronics, fashion, beauty, groceries and more with guaranteed delivery."/>
+<meta property="og:title" content="Dadar Shop - Your Trusted Online Marketplace"/>
+<meta property="og:description" content="Shop millions of products at best prices. Flash sales, exclusive deals and fast delivery."/>
+<meta property="og:type" content="website"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--accent); z-index: 9999; width: 0; transition: width 0.1s; }
+.section-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.section-tabs::-webkit-scrollbar { display: none; }
+.section-tab { padding: 6px 16px; border-radius: var(--radius-full); border: 1.5px solid var(--border); font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: var(--transition); background: white; }
+.section-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<!-- Toast Container -->
+<div class="toast-container"></div>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span>📍 Deliver to: <a href="#">Dhaka</a></span>
+      <span class="topbar-divider">|</span>
+      <span>📞 Helpline: 16345</span>
+      <span class="topbar-divider">|</span>
+      <span>Free delivery on orders above ৳1000</span>
+    </div>
+    <div class="topbar-right">
+      <a href="seller.html">Sell on Dadar Shop</a>
+      <span class="topbar-divider">|</span>
+      <a href="blog.html">Blog</a>
+      <span class="topbar-divider">|</span>
+      <a href="tracking.html">Track Order</a>
+      <span class="topbar-divider">|</span>
+      <a href="login.html">Login</a>
+      <span class="topbar-divider">|</span>
+      <a href="register.html">Register</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">D</div>
+      <div class="logo-text">
+        <span class="logo-name">Dadar Shop</span>
+        <span class="logo-tagline">Your Trusted Online Marketplace</span>
+      </div>
+    </a>
+
+    <div class="header-search">
+      <div class="search-wrapper">
+        <select class="search-category">
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+          <option>Beauty</option>
+          <option>Groceries</option>
+          <option>Home</option>
+        </select>
+        <input type="text" class="search-input" placeholder="Search products, brands and more..."/>
+        <button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button>
+      </div>
+      <div class="search-suggestions"></div>
+    </div>
+
+    <div class="header-actions">
+      <div class="notif-dropdown-wrapper">
+        <div class="header-action-btn notif-btn">
+          <span>🔔</span><span>Alerts</span>
+          <span class="badge">3</span>
+        </div>
+        <div class="notif-dropdown">
+          <div class="notif-header"><h4>Notifications</h4><span class="notif-mark-all">Mark all read</span></div>
+          <div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics. Limited time only!</p><div class="time">2 minutes ago</div></div></div>
+          <div class="notif-item unread"><div class="notif-icon green">✅</div><div class="notif-body"><p>Your order <strong>#DS-9842</strong> has been shipped.</p><div class="time">1 hour ago</div></div></div>
+          <div class="notif-item unread"><div class="notif-icon blue">💙</div><div class="notif-body"><p>Item in your wishlist is now <strong>30% off</strong>!</p><div class="time">3 hours ago</div></div></div>
+          <div class="notif-footer"><a href="#">View all notifications</a></div>
+        </div>
+      </div>
+
+      <div class="header-action-btn" onclick="window.location.href='wishlist.html'">
+        <span>❤️</span><span>Wishlist</span>
+        <span class="badge wishlist-count">0</span>
+      </div>
+
+      <div class="header-action-btn" onclick="openCart()">
+        <span>🛒</span><span>Cart</span>
+        <span class="badge cart-count">0</span>
+      </div>
+
+      <div class="account-dropdown-wrapper">
+        <div class="header-action-btn account-btn">
+          <span>👤</span><span>Account</span>
+        </div>
+        <div class="account-dropdown">
+          <div class="account-dropdown-header">
+            <div class="name">Hello, Guest</div>
+            <div class="email">Sign in for the best experience</div>
+          </div>
+          <div class="account-dropdown-links">
+            <a href="login.html"><i>🔑</i> Login / Register</a>
+            <a href="account.html"><i>👤</i> My Account</a>
+            <a href="orders.html"><i>📦</i> My Orders</a>
+            <a href="wishlist.html"><i>❤️</i> Wishlist</a>
+            <a href="tracking.html"><i>🗺️</i> Track Order</a>
+          </div>
+          <div class="account-dropdown-footer">
+            <div class="account-dropdown-links"><a href="seller.html"><i>🏪</i> Become a Seller</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container">
+    <div class="mega-menu-wrapper">
+      <button class="all-categories-btn">
+        ☰ All Categories
+      </button>
+      <div class="mega-menu">
+        <div class="mega-menu-left">
+          <div class="mega-menu-item active" data-cat="0"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div>
+          <div class="mega-menu-item" data-cat="1"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div>
+          <div class="mega-menu-item" data-cat="2"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div>
+          <div class="mega-menu-item" data-cat="3"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div>
+          <div class="mega-menu-item" data-cat="4"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div>
+          <div class="mega-menu-item" data-cat="5"><div class="mega-menu-item-left"><i>📚</i> Books</div> ›</div>
+          <div class="mega-menu-item" data-cat="6"><div class="mega-menu-item-left"><i>⚽</i> Sports</div> ›</div>
+          <div class="mega-menu-item" data-cat="7"><div class="mega-menu-item-left"><i>🧸</i> Toys & Baby</div> ›</div>
+          <div class="mega-menu-item" data-cat="8"><div class="mega-menu-item-left"><i>🚗</i> Automotive</div> ›</div>
+          <div class="mega-menu-item" data-cat="9"><div class="mega-menu-item-left"><i>🌿</i> Health</div> ›</div>
+        </div>
+        <div class="mega-menu-right active">
+          <div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics&sub=mobiles">Samsung</a><a href="category.html?cat=electronics&sub=mobiles">iPhone</a><a href="category.html?cat=electronics&sub=mobiles">Xiaomi</a><a href="category.html?cat=electronics&sub=mobiles">All Phones</a></div>
+          <div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics&sub=laptops">Laptops</a><a href="category.html?cat=electronics&sub=tablets">Tablets</a><a href="category.html?cat=electronics&sub=computers">Desktops</a><a href="category.html?cat=electronics&sub=monitors">Monitors</a></div>
+          <div class="mega-sub-group"><h5>Audio & TV</h5><a href="category.html?cat=electronics&sub=headphones">Headphones</a><a href="category.html?cat=electronics&sub=speakers">Speakers</a><a href="category.html?cat=electronics&sub=tv">Smart TVs</a><a href="category.html?cat=electronics&sub=cameras">Cameras</a></div>
+        </div>
+        <div class="mega-menu-right">
+          <div class="mega-sub-group"><h5>Men's Fashion</h5><a href="category.html?cat=fashion&sub=mens">T-Shirts</a><a href="category.html?cat=fashion&sub=mens">Shirts</a><a href="category.html?cat=fashion&sub=mens">Jeans</a><a href="category.html?cat=fashion&sub=mens">Suits</a></div>
+          <div class="mega-sub-group"><h5>Women's Fashion</h5><a href="category.html?cat=fashion&sub=womens">Sarees</a><a href="category.html?cat=fashion&sub=womens">Dresses</a><a href="category.html?cat=fashion&sub=womens">Salwar</a><a href="category.html?cat=fashion&sub=womens">Tops</a></div>
+          <div class="mega-sub-group"><h5>Footwear</h5><a href="category.html?cat=fashion&sub=shoes">Men's Shoes</a><a href="category.html?cat=fashion&sub=shoes">Women's Shoes</a><a href="category.html?cat=fashion&sub=shoes">Sandals</a><a href="category.html?cat=fashion&sub=shoes">Sneakers</a></div>
+        </div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Skincare</h5><a href="category.html?cat=beauty">Face Wash</a><a href="category.html?cat=beauty">Moisturizer</a><a href="category.html?cat=beauty">Sunscreen</a></div><div class="mega-sub-group"><h5>Makeup</h5><a href="category.html?cat=beauty">Lipstick</a><a href="category.html?cat=beauty">Foundation</a><a href="category.html?cat=beauty">Mascara</a></div><div class="mega-sub-group"><h5>Hair Care</h5><a href="category.html?cat=beauty">Shampoo</a><a href="category.html?cat=beauty">Hair Oil</a><a href="category.html?cat=beauty">Serum</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Furniture</h5><a href="category.html?cat=home">Sofas</a><a href="category.html?cat=home">Beds</a><a href="category.html?cat=home">Tables</a></div><div class="mega-sub-group"><h5>Kitchen</h5><a href="category.html?cat=home">Cookware</a><a href="category.html?cat=home">Appliances</a><a href="category.html?cat=home">Storage</a></div><div class="mega-sub-group"><h5>Decor</h5><a href="category.html?cat=home">Lamps</a><a href="category.html?cat=home">Curtains</a><a href="category.html?cat=home">Rugs</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Beverages</h5><a href="category.html?cat=groceries">Tea & Coffee</a><a href="category.html?cat=groceries">Juices</a><a href="category.html?cat=groceries">Soft Drinks</a></div><div class="mega-sub-group"><h5>Snacks</h5><a href="category.html?cat=groceries">Chips</a><a href="category.html?cat=groceries">Biscuits</a><a href="category.html?cat=groceries">Chocolates</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Books</h5><a href="category.html?cat=books">Academic</a><a href="category.html?cat=books">Fiction</a><a href="category.html?cat=books">Self Help</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Sports</h5><a href="category.html?cat=sports">Cricket</a><a href="category.html?cat=sports">Football</a><a href="category.html?cat=sports">Badminton</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Toys</h5><a href="category.html?cat=toys">Action Figures</a><a href="category.html?cat=toys">Board Games</a><a href="category.html?cat=toys">Puzzles</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Car</h5><a href="category.html?cat=automotive">Accessories</a><a href="category.html?cat=automotive">Care Products</a></div></div>
+        <div class="mega-menu-right"><div class="mega-sub-group"><h5>Health</h5><a href="category.html?cat=health">Supplements</a><a href="category.html?cat=health">Medical Devices</a></div></div>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">🏠 Home</a>
+      <a href="category.html?cat=flash-sale" class="nav-link sale">🔥 Flash Sale</a>
+      <a href="categories.html" class="nav-link">📂 All Categories</a>
+      <a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a>
+      <a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a>
+      <a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a>
+      <a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a>
+      <a href="category.html?cat=groceries" class="nav-link">🥕 Groceries</a>
+      <a href="blog.html" class="nav-link">📝 Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Slider -->
+<div class="hero-slider" style="margin-top:0;">
+  <div class="hero-slides">
+    <!-- Slide 1 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 100%);"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-badge accent">🔥 Mega Sale — Up to 70% Off</div>
+        <h1 class="hero-title">Premium <span>Electronics</span><br/>at Unbeatable Prices</h1>
+        <p class="hero-subtitle">Shop the latest smartphones, laptops, headphones and more. Free delivery on orders above ৳1000.</p>
+        <div class="hero-cta">
+          <a href="category.html?cat=electronics" class="btn-hero btn-hero-primary">Shop Electronics</a>
+          <a href="category.html?cat=flash-sale" class="btn-hero btn-hero-outline">View Flash Sale</a>
+        </div>
+      </div>
+      <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:120px;opacity:0.15;">📱</div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background:linear-gradient(135deg,#8B2FC9 0%,#D63384 100%);"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-badge">👗 New Collection</div>
+        <h1 class="hero-title">Discover <span>Fashion</span><br/>That Speaks You</h1>
+        <p class="hero-subtitle">Explore thousands of styles from top brands. Express yourself with Dadar Shop fashion.</p>
+        <div class="hero-cta">
+          <a href="category.html?cat=fashion" class="btn-hero btn-hero-primary">Shop Fashion</a>
+          <a href="category.html?cat=fashion&sub=womens" class="btn-hero btn-hero-outline">Women's Collection</a>
+        </div>
+      </div>
+      <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:120px;opacity:0.15;">👗</div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background:linear-gradient(135deg,#11998e 0%,#38ef7d 100%);"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-badge">🌿 Natural & Fresh</div>
+        <h1 class="hero-title">Organic <span>Groceries</span><br/>Delivered Fresh</h1>
+        <p class="hero-subtitle">Fresh vegetables, fruits, dairy and pantry essentials delivered to your doorstep daily.</p>
+        <div class="hero-cta">
+          <a href="category.html?cat=groceries" class="btn-hero btn-hero-primary">Shop Groceries</a>
+          <a href="category.html?cat=groceries&sub=organic" class="btn-hero btn-hero-outline">Organic Products</a>
+        </div>
+      </div>
+      <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:120px;opacity:0.15;">🥕</div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg" style="background:linear-gradient(135deg,#f85606 0%,#ff7a35 100%);"></div>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-badge accent">✨ Exclusive</div>
+        <h1 class="hero-title">Beauty &amp; <span>Skincare</span><br/>Glow Every Day</h1>
+        <p class="hero-subtitle">Premium skincare, makeup and beauty essentials from internationally renowned brands.</p>
+        <div class="hero-cta">
+          <a href="category.html?cat=beauty" class="btn-hero btn-hero-primary">Shop Beauty</a>
+          <a href="category.html?cat=beauty&sub=skincare" class="btn-hero btn-hero-outline">Skincare Range</a>
+        </div>
+      </div>
+      <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);font-size:120px;opacity:0.15;">💄</div>
+    </div>
+  </div>
+  <button class="hero-prev">‹</button>
+  <button class="hero-next">›</button>
+  <div class="hero-dots">
+    <button class="hero-dot active"></button>
+    <button class="hero-dot"></button>
+    <button class="hero-dot"></button>
+    <button class="hero-dot"></button>
+  </div>
+</div>
+
+<!-- Quick Categories -->
+<section style="background:white;padding:20px 0;border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:repeat(10,1fr);gap:12px;">
+      <a href="category.html?cat=electronics" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#fff0e6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">📱</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Electronics</span>
+      </a>
+      <a href="category.html?cat=fashion" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#f0e6ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">👗</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Fashion</span>
+      </a>
+      <a href="category.html?cat=beauty" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#ffe6f0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">💄</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Beauty</span>
+      </a>
+      <a href="category.html?cat=home" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#e6fff0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">🏠</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Home</span>
+      </a>
+      <a href="category.html?cat=groceries" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#e6ffe6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">🥕</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Groceries</span>
+      </a>
+      <a href="category.html?cat=sports" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#e6f0ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">⚽</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Sports</span>
+      </a>
+      <a href="category.html?cat=books" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#fff8e6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">📚</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Books</span>
+      </a>
+      <a href="category.html?cat=toys" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#ffe6e6;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">🧸</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Toys</span>
+      </a>
+      <a href="category.html?cat=automotive" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#e6f5ff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">🚗</div>
+        <span style="font-size:11px;font-weight:600;color:var(--text-primary);">Automotive</span>
+      </a>
+      <a href="categories.html" style="text-align:center;cursor:pointer;text-decoration:none;">
+        <div style="width:56px;height:56px;background:#f5f5f5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 6px;">≡</div>
+        <span style="font-size:11px;font-weight:600;color:var(--primary);">All Cats</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Flash Sale -->
+<section class="flash-sale-section">
+  <div class="container">
+    <div class="flash-header">
+      <div class="flash-title-group">
+        <div class="flash-label">⚡ <span>Flash Sale</span></div>
+        <div class="countdown">
+          <div class="countdown-item"><span class="countdown-num">06</span><span class="countdown-label">Hours</span></div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-item"><span class="countdown-num">23</span><span class="countdown-label">Mins</span></div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-item"><span class="countdown-num">45</span><span class="countdown-label">Secs</span></div>
+        </div>
+      </div>
+      <a href="category.html?cat=flash-sale" class="flash-view-all">See All →</a>
+    </div>
+    <div class="flash-products">
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>📱</span><span class="flash-discount-badge">-65%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:78%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">Samsung Galaxy A55 5G</div>
+          <div><span class="flash-price">৳28,999</span><span class="flash-original">৳82,999</span></div>
+          <div class="flash-sold">🔥 234 sold</div>
+        </div>
+      </a>
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>💻</span><span class="flash-discount-badge">-45%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:55%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">ASUS VivoBook 15</div>
+          <div><span class="flash-price">৳42,500</span><span class="flash-original">৳77,000</span></div>
+          <div class="flash-sold">🔥 89 sold</div>
+        </div>
+      </a>
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>🎧</span><span class="flash-discount-badge">-50%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:90%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">Sony WH-1000XM5</div>
+          <div><span class="flash-price">৳18,500</span><span class="flash-original">৳37,000</span></div>
+          <div class="flash-sold">🔥 401 sold</div>
+        </div>
+      </a>
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>⌚</span><span class="flash-discount-badge">-40%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:42%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">Apple Watch SE 2024</div>
+          <div><span class="flash-price">৳24,000</span><span class="flash-original">৳40,000</span></div>
+          <div class="flash-sold">🔥 156 sold</div>
+        </div>
+      </a>
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>📷</span><span class="flash-discount-badge">-35%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:67%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">Canon EOS M50 Mark II</div>
+          <div><span class="flash-price">৳52,000</span><span class="flash-original">৳80,000</span></div>
+          <div class="flash-sold">🔥 77 sold</div>
+        </div>
+      </a>
+      <a href="product.html" class="flash-card" style="text-decoration:none;">
+        <div class="flash-card-img"><span>🎮</span><span class="flash-discount-badge">-55%</span></div>
+        <div class="flash-stock-bar"><div class="flash-stock-fill" style="width:85%"></div></div>
+        <div class="flash-card-body">
+          <div class="flash-card-name">PS5 Controller DualSense</div>
+          <div><span class="flash-price">৳6,500</span><span class="flash-original">৳14,500</span></div>
+          <div class="flash-sold">🔥 512 sold</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Promo Banners -->
+<section class="section">
+  <div class="container">
+    <div class="promo-banners">
+      <div class="promo-banner promo-banner-1 promo-wide" onclick="window.location.href='category.html?cat=electronics'">
+        <div>
+          <h3>Up to 60% Off</h3>
+          <p>Premium Smartphones & Gadgets</p>
+          <div class="promo-cta">Shop Now →</div>
+        </div>
+        <div class="promo-emoji">📱</div>
+      </div>
+      <div class="promo-banner promo-banner-3" onclick="window.location.href='category.html?cat=beauty'">
+        <div>
+          <h3>Beauty Bonanza</h3>
+          <p>Skincare up to 40% off</p>
+          <div class="promo-cta">Shop Now →</div>
+        </div>
+        <div class="promo-emoji">💄</div>
+      </div>
+      <div class="promo-banner promo-banner-4" onclick="window.location.href='category.html?cat=fashion'">
+        <div>
+          <h3>Fashion Week</h3>
+          <p>New arrivals every day</p>
+          <div class="promo-cta">Browse →</div>
+        </div>
+        <div class="promo-emoji">👗</div>
+      </div>
+      <div class="promo-banner promo-banner-2" onclick="window.location.href='category.html?cat=home'">
+        <div>
+          <h3>Home Makeover</h3>
+          <p>Furniture & decor deals</p>
+          <div class="promo-cta">Shop Now →</div>
+        </div>
+        <div class="promo-emoji">🏠</div>
+      </div>
+      <div class="promo-banner promo-banner-6" onclick="window.location.href='category.html?cat=groceries'">
+        <div>
+          <h3>Fresh Groceries</h3>
+          <p>Daily essentials delivered</p>
+          <div class="promo-cta">Order Now →</div>
+        </div>
+        <div class="promo-emoji">🥕</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Events & Campaigns -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">🎪 Featured Events</div><div class="section-subtitle">Exclusive campaigns and special events</div></div></div>
+    </div>
+    <div class="event-grid">
+      <div class="event-card" onclick="window.location.href='category.html?cat=electronics'">
+        <div class="event-bg" style="background:linear-gradient(135deg,#1a1a2e,#0f3460);"></div>
+        <div class="event-overlay"></div>
+        <div class="event-content" style="font-size:64px;text-align:center;padding-top:60px;">📱</div>
+        <div class="event-content">
+          <span class="event-tag">MEGA EVENT</span>
+          <div class="event-title">Tech Extravaganza 2025</div>
+          <div class="event-desc">100+ brands, 10,000+ products</div>
+          <div class="event-date">📅 June 20–30, 2025</div>
+        </div>
+      </div>
+      <div class="event-card" onclick="window.location.href='category.html?cat=fashion'">
+        <div class="event-bg" style="background:linear-gradient(135deg,#8B2FC9,#D63384);"></div>
+        <div class="event-overlay"></div>
+        <div class="event-content" style="font-size:64px;text-align:center;padding-top:60px;">👗</div>
+        <div class="event-content">
+          <span class="event-tag">FASHION</span>
+          <div class="event-title">Summer Fashion Week</div>
+          <div class="event-desc">New season styles up to 50% off</div>
+          <div class="event-date">📅 All of June 2025</div>
+        </div>
+      </div>
+      <div class="event-card" onclick="window.location.href='category.html?cat=beauty'">
+        <div class="event-bg" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);"></div>
+        <div class="event-overlay"></div>
+        <div class="event-content" style="font-size:64px;text-align:center;padding-top:60px;">🌸</div>
+        <div class="event-content">
+          <span class="event-tag">BEAUTY</span>
+          <div class="event-title">Glow Fest 2025</div>
+          <div class="event-desc">Skincare & beauty essentials sale</div>
+          <div class="event-date">📅 June 15–25, 2025</div>
+        </div>
+      </div>
+      <div class="event-card" onclick="window.location.href='category.html?cat=groceries'">
+        <div class="event-bg" style="background:linear-gradient(135deg,#11998e,#38ef7d);"></div>
+        <div class="event-overlay"></div>
+        <div class="event-content" style="font-size:64px;text-align:center;padding-top:60px;">🥑</div>
+        <div class="event-content">
+          <span class="event-tag">HEALTH</span>
+          <div class="event-title">Organic Living Fair</div>
+          <div class="event-desc">Certified organic at best prices</div>
+          <div class="event-date">📅 June 18–28, 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Today's Deals -->
+<section class="section" style="background:white;padding:28px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">🏷️ Today's Best Deals</div><div class="section-subtitle">Handpicked deals refreshed daily</div></div></div>
+      <a href="category.html?cat=deals" class="section-view-all">View All <span>→</span></a>
+    </div>
+    <div class="product-scroll">
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>👟</span>
+          <div class="product-badges"><span class="product-badge badge-sale">-40%</span></div>
+          <div class="product-card-actions">
+            <button class="card-action-btn" data-wishlist="p-deal-1" data-name="Nike Air Max 270" data-emoji="👟" onclick="event.stopPropagation();">❤️</button>
+            <button class="card-action-btn" onclick="event.stopPropagation();showToast('Compare','Added to compare list','info')">⚖️</button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-brand">Nike</div>
+          <div class="product-name">Nike Air Max 270 React Running Shoes</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(1,247)</span></div>
+          <div class="product-price-row"><span class="product-price">৳7,200</span><span class="product-original">৳12,000</span><span class="product-discount">40% off</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-1',name:'Nike Air Max 270',price:7200,emoji:'👟'})">+ Cart</button>
+        </div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>⌚</span>
+          <div class="product-badges"><span class="product-badge badge-hot">HOT</span></div>
+          <div class="product-card-actions">
+            <button class="card-action-btn" data-wishlist="p-deal-2" data-name="Apple Watch SE" data-emoji="⌚" onclick="event.stopPropagation();">❤️</button>
+          </div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-brand">Apple</div>
+          <div class="product-name">Apple Watch SE 2024 GPS 40mm</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(3,891)</span></div>
+          <div class="product-price-row"><span class="product-price">৳24,000</span><span class="product-original">৳40,000</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-2',name:'Apple Watch SE',price:24000,emoji:'⌚'})">+ Cart</button>
+        </div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🖥️</span>
+          <div class="product-badges"><span class="product-badge badge-new">NEW</span></div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-brand">Samsung</div>
+          <div class="product-name">Samsung 27" Curved 4K Monitor</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(654)</span></div>
+          <div class="product-price-row"><span class="product-price">৳38,500</span><span class="product-original">৳55,000</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-3',name:'Samsung 27 Monitor',price:38500,emoji:'🖥️'})">+ Cart</button>
+        </div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>💆</span>
+          <div class="product-badges"><span class="product-badge badge-sale">-30%</span></div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-brand">Dyson</div>
+          <div class="product-name">Dyson Airwrap Styler Complete</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(2,104)</span></div>
+          <div class="product-price-row"><span class="product-price">৳42,000</span><span class="product-original">৳60,000</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-4',name:'Dyson Airwrap',price:42000,emoji:'💆'})">+ Cart</button>
+        </div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🏃</span>
+          <div class="product-badges"><span class="product-badge badge-top">TOP</span></div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-brand">Adidas</div>
+          <div class="product-name">Adidas Ultraboost 22 Running</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(5,332)</span></div>
+          <div class="product-price-row"><span class="product-price">৳8,500</span><span class="product-original">৳14,000</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-5',name:'Adidas Ultraboost',price:8500,emoji:'🏃'})">+ Cart</button>
+        </div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🎒</span></div>
+        <div class="product-card-body">
+          <div class="product-brand">Samsonite</div>
+          <div class="product-name">Samsonite 55cm Hardshell Luggage</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(876)</span></div>
+          <div class="product-price-row"><span class="product-price">৳12,800</span><span class="product-original">৳20,000</span></div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'p-deal-6',name:'Samsonite Luggage',price:12800,emoji:'🎒'})">+ Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Brands -->
+<section class="brands-section">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:16px;">
+      <div class="section-title-group"><div class="section-stripe"></div><div class="section-title">🏆 Top Brands</div></div>
+      <a href="categories.html" class="section-view-all">All Brands →</a>
+    </div>
+    <div class="brand-scroll">
+      <div class="brand-item"><span>Samsung</span></div>
+      <div class="brand-item"><span>Apple</span></div>
+      <div class="brand-item"><span>Nike</span></div>
+      <div class="brand-item"><span>Adidas</span></div>
+      <div class="brand-item"><span>Sony</span></div>
+      <div class="brand-item"><span>LG</span></div>
+      <div class="brand-item"><span>HP</span></div>
+      <div class="brand-item"><span>Xiaomi</span></div>
+      <div class="brand-item"><span>Asus</span></div>
+      <div class="brand-item"><span>Dyson</span></div>
+      <div class="brand-item"><span>Puma</span></div>
+      <div class="brand-item"><span>Canon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Trending Products -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">📈 Trending Now</div><div class="section-subtitle">What everyone is buying this week</div></div></div>
+      <a href="search.html?q=trending" class="section-view-all">See All →</a>
+    </div>
+    <div class="grid-5">
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>📱</span><div class="product-badges"><span class="product-badge badge-hot">HOT</span></div></div>
+        <div class="product-card-body">
+          <div class="product-brand">Samsung</div>
+          <div class="product-name">Samsung Galaxy S24 Ultra 256GB</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(8,234)</span></div>
+          <div class="product-price-row"><span class="product-price">৳1,24,999</span></div>
+        </div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'t1',name:'Samsung Galaxy S24 Ultra',price:124999,emoji:'📱'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>💻</span><div class="product-badges"><span class="product-badge badge-sale">-20%</span></div></div>
+        <div class="product-card-body">
+          <div class="product-brand">Apple</div>
+          <div class="product-name">MacBook Air M3 13-inch 8GB</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(4,112)</span></div>
+          <div class="product-price-row"><span class="product-price">৳1,08,000</span><span class="product-original">৳1,35,000</span></div>
+        </div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'t2',name:'MacBook Air M3',price:108000,emoji:'💻'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🎧</span></div>
+        <div class="product-card-body">
+          <div class="product-brand">Sony</div>
+          <div class="product-name">Sony WH-1000XM5 Noise Cancelling</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(12,445)</span></div>
+          <div class="product-price-row"><span class="product-price">৳18,500</span></div>
+        </div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'t3',name:'Sony WH-1000XM5',price:18500,emoji:'🎧'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🧴</span><div class="product-badges"><span class="product-badge badge-top">TOP</span></div></div>
+        <div class="product-card-body">
+          <div class="product-brand">Neutrogena</div>
+          <div class="product-name">Neutrogena Hydro Boost Face Gel</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(3,678)</span></div>
+          <div class="product-price-row"><span class="product-price">৳1,850</span><span class="product-original">৳2,400</span></div>
+        </div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'t4',name:'Neutrogena Hydro Boost',price:1850,emoji:'🧴'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🍳</span></div>
+        <div class="product-card-body">
+          <div class="product-brand">Tefal</div>
+          <div class="product-name">Tefal Non-Stick Cookware Set 5pc</div>
+          <div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(2,341)</span></div>
+          <div class="product-price-row"><span class="product-price">৳5,600</span><span class="product-original">৳8,500</span></div>
+        </div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'t5',name:'Tefal Cookware Set',price:5600,emoji:'🍳'})">+ Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Arrivals -->
+<section class="section" style="background:white;padding:28px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">✨ New Arrivals</div><div class="section-subtitle">Fresh from the warehouse — just landed</div></div></div>
+      <a href="search.html?q=new-arrivals" class="section-view-all">See All →</a>
+    </div>
+    <div style="display:flex;gap:12px;margin-bottom:16px;">
+      <button class="section-tab active">All</button>
+      <button class="section-tab">Electronics</button>
+      <button class="section-tab">Fashion</button>
+      <button class="section-tab">Beauty</button>
+      <button class="section-tab">Home</button>
+    </div>
+    <div class="grid-5">
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>📡</span><div class="product-badges"><span class="product-badge badge-new">NEW</span></div></div>
+        <div class="product-card-body"><div class="product-brand">Xiaomi</div><div class="product-name">Xiaomi 14 Ultra 512GB Titanium</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(342)</span></div><div class="product-price-row"><span class="product-price">৳94,999</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'n1',name:'Xiaomi 14 Ultra',price:94999,emoji:'📡'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>👔</span><div class="product-badges"><span class="product-badge badge-new">NEW</span></div></div>
+        <div class="product-card-body"><div class="product-brand">H&M</div><div class="product-name">Premium Linen Summer Shirt White</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(89)</span></div><div class="product-price-row"><span class="product-price">৳1,200</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'n2',name:'H&M Linen Shirt',price:1200,emoji:'👔'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🌸</span><div class="product-badges"><span class="product-badge badge-new">NEW</span></div></div>
+        <div class="product-card-body"><div class="product-brand">The Ordinary</div><div class="product-name">Niacinamide 10% + Zinc 1% 30ml</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(1,203)</span></div><div class="product-price-row"><span class="product-price">৳850</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'n3',name:'The Ordinary Niacinamide',price:850,emoji:'🌸'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🛋️</span><div class="product-badges"><span class="product-badge badge-new">NEW</span></div></div>
+        <div class="product-card-body"><div class="product-brand">IKEA</div><div class="product-name">IKEA KALLAX Shelf Unit 4 Compartments</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(567)</span></div><div class="product-price-row"><span class="product-price">৳8,900</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'n4',name:'IKEA KALLAX Shelf',price:8900,emoji:'🛋️'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🎮</span><div class="product-badges"><span class="product-badge badge-new">NEW</span></div></div>
+        <div class="product-card-body"><div class="product-brand">Razer</div><div class="product-name">Razer DeathAdder V3 Gaming Mouse</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(412)</span></div><div class="product-price-row"><span class="product-price">৳7,500</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'n5',name:'Razer DeathAdder V3',price:7500,emoji:'🎮'})">+ Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Best Sellers -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">🥇 Best Sellers</div><div class="section-subtitle">Most loved products by our customers</div></div></div>
+      <a href="search.html?q=bestsellers" class="section-view-all">See All →</a>
+    </div>
+    <div class="grid-5">
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🍚</span><div class="product-badges"><span class="product-badge badge-top">TOP</span></div></div>
+        <div class="product-card-body"><div class="product-brand">Panasonic</div><div class="product-name">Panasonic SR-WA18 1.8L Rice Cooker</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(15,234)</span></div><div class="product-price-row"><span class="product-price">৳4,200</span><span class="product-original">৳6,000</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'b1',name:'Panasonic Rice Cooker',price:4200,emoji:'🍚'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>👕</span><div class="product-badges"><span class="product-badge badge-top">TOP</span></div></div>
+        <div class="product-card-body"><div class="product-brand">Uniqlo</div><div class="product-name">Uniqlo HEATTECH Premium T-Shirt</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(8,901)</span></div><div class="product-price-row"><span class="product-price">৳1,500</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'b2',name:'Uniqlo HEATTECH Tee',price:1500,emoji:'👕'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>🧃</span></div>
+        <div class="product-card-body"><div class="product-brand">Tropicana</div><div class="product-name">Tropicana 100% Orange Juice 1L x6</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div><span class="rating-count">(3,456)</span></div><div class="product-price-row"><span class="product-price">৳980</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'b3',name:'Tropicana OJ 1L x6',price:980,emoji:'🧃'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>💊</span></div>
+        <div class="product-card-body"><div class="product-brand">Centrum</div><div class="product-name">Centrum Multivitamin 60 Tablets</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(6,789)</span></div><div class="product-price-row"><span class="product-price">৳1,200</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'b4',name:'Centrum Multivitamin',price:1200,emoji:'💊'})">+ Cart</button></div>
+      </div>
+      <div class="product-card" onclick="window.location.href='product.html'">
+        <div class="product-card-img"><span>📖</span></div>
+        <div class="product-card-body"><div class="product-brand">Self Help</div><div class="product-name">Atomic Habits by James Clear</div><div class="product-rating"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div><span class="rating-count">(24,567)</span></div><div class="product-price-row"><span class="product-price">৳580</span></div></div>
+        <div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'b5',name:'Atomic Habits',price:580,emoji:'📖'})">+ Cart</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Customer Reviews -->
+<section class="section" style="background:white;padding:28px 0;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title-group"><div class="section-stripe"></div><div><div class="section-title">⭐ Customer Reviews</div><div class="section-subtitle">What our customers say about us</div></div></div>
+    </div>
+    <div class="grid-4">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));">R</div>
+          <div class="reviewer-info"><div class="name">Rahim Uddin</div><div class="meta">Dhaka · Electronics</div><div class="review-verified">✅ Verified Purchase</div></div>
+          <div class="review-stars"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div>
+        </div>
+        <p class="review-text">"Received my Samsung Galaxy phone in just 24 hours! The product was exactly as described — original and brand new. Packaging was excellent. Will definitely buy again from Dadar Shop!"</p>
+        <div class="review-product">📱 Samsung Galaxy A55 5G</div>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#8B2FC9,#D63384);">S</div>
+          <div class="reviewer-info"><div class="name">Sumaiya Begum</div><div class="meta">Chittagong · Fashion</div><div class="review-verified">✅ Verified Purchase</div></div>
+          <div class="review-stars"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div>
+        </div>
+        <p class="review-text">"The saree quality is outstanding! Color is exactly like the pictures, fabric is premium. Customer support was very helpful when I had a size query. Highly recommend Dadar Shop!"</p>
+        <div class="review-product">👗 Silk Saree Collection</div>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#11998e,#38ef7d);">K</div>
+          <div class="reviewer-info"><div class="name">Karim Ahmed</div><div class="meta">Sylhet · Home & Living</div><div class="review-verified">✅ Verified Purchase</div></div>
+          <div class="review-stars"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star empty">★</span></div></div>
+        </div>
+        <p class="review-text">"Good quality rice cooker at a great price. Easy ordering process and fast delivery. The product works perfectly. Only minor issue was the box was slightly dented but product was fine."</p>
+        <div class="review-product">🍚 Panasonic Rice Cooker</div>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#fc4a1a,#f7b733);">N</div>
+          <div class="reviewer-info"><div class="name">Nusrat Jahan</div><div class="meta">Rajshahi · Beauty</div><div class="review-verified">✅ Verified Purchase</div></div>
+          <div class="review-stars"><div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div></div>
+        </div>
+        <p class="review-text">"Amazing skincare products! The Neutrogena moisturizer is genuine and works wonderfully. Great flash sale deal — saved 35%! Delivery was super fast. 10/10 would recommend."</p>
+        <div class="review-product">🧴 Neutrogena Hydro Boost</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile App Promo -->
+<section class="app-promo">
+  <div class="container" style="position:relative;z-index:2;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+      <div class="app-promo-content">
+        <div style="background:rgba(255,255,255,0.1);display:inline-block;padding:4px 12px;border-radius:var(--radius-full);font-size:12px;color:rgba(255,255,255,0.8);margin-bottom:12px;">📲 Download the App</div>
+        <h2>Shop Smarter with<br/>the <span>Dadar Shop</span> App</h2>
+        <p>Get exclusive app-only deals, track orders in real-time, and enjoy a seamless mobile shopping experience. Available on iOS & Android.</p>
+        <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:13px;">✅ 10M+ Downloads</div>
+          <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:13px;">⭐ 4.8 Rating</div>
+          <div style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.8);font-size:13px;">🔒 Secure Payments</div>
+        </div>
+        <div class="app-badges">
+          <div class="app-badge"><i>🍎</i><div class="app-badge-text"><small>Download on the</small><strong>App Store</strong></div></div>
+          <div class="app-badge"><i>▶️</i><div class="app-badge-text"><small>Get it on</small><strong>Google Play</strong></div></div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:100px;opacity:0.3;">📱</div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-content">
+      <h2>🔔 Stay Updated with Dadar Shop</h2>
+      <p>Subscribe to get exclusive deals, early access to flash sales, and personalized recommendations straight to your inbox.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Subscribed!','Welcome to Dadar Shop newsletter!','success');this.reset();">
+        <input type="email" placeholder="Enter your email address..."/>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="newsletter-benefits">
+        <div class="newsletter-benefit">✅ No spam, ever</div>
+        <div class="newsletter-benefit">🎁 Exclusive offers</div>
+        <div class="newsletter-benefit">🚚 Delivery updates</div>
+        <div class="newsletter-benefit">📱 New arrivals first</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo" style="margin-bottom:12px;">
+          <div class="logo-icon">D</div>
+          <div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div>
+        </div>
+        <p class="tagline">Bangladesh's most trusted eCommerce platform with millions of products, competitive prices, and guaranteed delivery. Shop with confidence at Dadar Shop.</p>
+        <div class="footer-social">
+          <a href="#" class="social-btn">📘</a>
+          <a href="#" class="social-btn">📸</a>
+          <a href="#" class="social-btn">🐦</a>
+          <a href="#" class="social-btn">▶️</a>
+          <a href="#" class="social-btn">💬</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Care</h4>
+        <div class="footer-links">
+          <a href="help.html">Help Center</a>
+          <a href="tracking.html">Track My Order</a>
+          <a href="help.html#returns">Returns & Refunds</a>
+          <a href="help.html#faq">FAQ</a>
+          <a href="help.html#contact">Contact Support</a>
+          <a href="help.html#dispute">Dispute Resolution</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About Dadar Shop</h4>
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="about.html#careers">Careers</a>
+          <a href="blog.html">Blog</a>
+          <a href="seller.html">Sell with Us</a>
+          <a href="about.html#press">Press & Media</a>
+          <a href="about.html#sustainability">Sustainability</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Policies</h4>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">Return Policy</a>
+          <a href="#">Seller Policy</a>
+          <a href="#">Intellectual Property</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact">
+          <div class="footer-contact-item"><i>📞</i><span>Hotline: 16345<br/>Mon–Sat 9AM–10PM</span></div>
+          <div class="footer-contact-item"><i>✉️</i><span>support@dadarshop.com</span></div>
+          <div class="footer-contact-item"><i>📍</i><span>Dhaka, Bangladesh</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="footer-divider"/>
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="copyright">© 2025 Dadar Shop. All Rights Reserved. "Your Trusted Online Marketplace"</p>
+      <div class="footer-payment">
+        <span class="payment-badge">💳 Card</span>
+        <span class="payment-badge">📱 bKash</span>
+        <span class="payment-badge">📱 Nagad</span>
+        <span class="payment-badge">🏦 Bank</span>
+        <span class="payment-badge">💵 COD</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mini Cart Drawer -->
+<div class="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3>🛒 My Cart (<span class="cart-count">0</span>)</h3>
+    <button class="cart-close-btn" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-drawer-body"></div>
+  <div class="cart-drawer-footer">
+    <div class="coupon-row">
+      <input class="coupon-input" placeholder="Coupon code (try DADAR10)"/>
+      <button class="btn-apply">Apply</button>
+    </div>
+    <div class="cart-summary-row"><span>Subtotal:</span><span id="cart-subtotal">৳0</span></div>
+    <div class="cart-summary-row"><span>Delivery:</span><span>৳60 <small style="color:var(--text-muted)">(Free above ৳1000)</small></span></div>
+    <div class="cart-summary-row total"><span>Total:</span><span id="cart-total">৳0</span></div>
+    <button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button>
+    <button class="btn-checkout" style="margin-top:8px;background:var(--secondary);" onclick="window.location.href='cart.html'">View Full Cart</button>
+  </div>
+</div>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+  <button class="chat-trigger"><span>💬</span><span class="badge" style="background:var(--success);">1</span></button>
+  <div class="chat-popup">
+    <div class="chat-popup-header"><h4>💬 Dadar Support</h4><button class="chat-close">✕</button></div>
+    <div class="chat-body">
+      <div class="chat-msg bot"><div class="chat-msg-avatar">🤖</div><div class="chat-bubble">Hello! Welcome to Dadar Shop 👋 How can I help you today?</div></div>
+    </div>
+    <div class="chat-input-row"><input placeholder="Type your message..."/><button class="chat-send">➤</button></div>
+  </div>
+</div>
+
+<!-- Back to Top -->
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- Mobile Bottom Nav -->
+<nav class="mobile-nav">
+  <div class="mobile-nav-items">
+    <div class="mobile-nav-item active" data-href="index.html"><i>🏠</i><span>Home</span></div>
+    <div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div>
+    <div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div>
+    <div class="mobile-nav-item" onclick="openCart()"><i>🛒</i><span>Cart</span><span class="mobile-nav-badge mobile-cart-count" style="display:none;left:38px;">0</span></div>
+    <div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div>
+  </div>
+</nav>
+
+<script src="js/main.js"></script>
+<script>
+// Section tab switching
+document.querySelectorAll('.section-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    tab.closest('div').querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

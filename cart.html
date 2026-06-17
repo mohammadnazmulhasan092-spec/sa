@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Shopping Cart - Dadar Shop</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>"/>
+<style>
+.cart-continue { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--primary); font-weight:600; cursor:pointer; margin-bottom:16px; }
+.saved-for-later { margin-top:24px; }
+</style>
+</head>
+<body>
+<div class="toast-container"></div>
+<div class="topbar"><div class="container"><div class="topbar-left"><span>📍 Deliver to: <a href="#">Dhaka</a></span><span class="topbar-divider">|</span><span>📞 16345</span><span class="topbar-divider">|</span><span>Free delivery above ৳1000</span></div><div class="topbar-right"><a href="seller.html">Sell on Dadar</a><span class="topbar-divider">|</span><a href="tracking.html">Track Order</a><span class="topbar-divider">|</span><a href="login.html">Login</a><span class="topbar-divider">|</span><a href="register.html">Register</a></div></div></div>
+<header class="header"><div class="container"><a href="index.html" class="logo"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></a><div class="header-search"><div class="search-wrapper"><select class="search-category"><option>All</option><option>Electronics</option><option>Fashion</option><option>Beauty</option><option>Groceries</option><option>Home</option></select><input type="text" class="search-input" placeholder="Search products, brands and more..."/><button class="search-btn" onclick="doSearch(document.querySelector('.search-input').value)">🔍</button></div><div class="search-suggestions"></div></div><div class="header-actions"><div class="notif-dropdown-wrapper"><div class="header-action-btn notif-btn"><span>🔔</span><span>Alerts</span><span class="badge">3</span></div><div class="notif-dropdown"><div class="notif-header"><h4>Notifications</h4><span class="notif-mark-all">Mark all read</span></div><div class="notif-item unread"><div class="notif-icon orange">🔥</div><div class="notif-body"><p><strong>Flash Sale!</strong> 60% off on Electronics!</p><div class="time">2 min ago</div></div></div><div class="notif-footer"><a href="#">View all notifications</a></div></div></div><div class="header-action-btn" onclick="window.location.href='wishlist.html'"><span>❤️</span><span>Wishlist</span><span class="badge wishlist-count">0</span></div><div class="header-action-btn" style="background:rgba(255,255,255,0.2);" onclick="openCart()"><span>🛒</span><span>Cart</span><span class="badge cart-count">0</span></div><div class="account-dropdown-wrapper"><div class="header-action-btn account-btn"><span>👤</span><span>Account</span></div><div class="account-dropdown"><div class="account-dropdown-header"><div class="name">Hello, Guest</div><div class="email">Sign in for best experience</div></div><div class="account-dropdown-links"><a href="login.html"><i>🔑</i> Login / Register</a><a href="account.html"><i>👤</i> My Account</a><a href="account.html"><i>📦</i> My Orders</a><a href="wishlist.html"><i>❤️</i> Wishlist</a><a href="tracking.html"><i>🗺️</i> Track Order</a></div><div class="account-dropdown-footer"><div class="account-dropdown-links"><a href="seller.html"><i>🏪</i> Become a Seller</a></div></div></div></div></div></div></header>
+<nav class="navbar"><div class="container"><div class="mega-menu-wrapper"><button class="all-categories-btn">☰ All Categories</button><div class="mega-menu"><div class="mega-menu-left"><div class="mega-menu-item active" data-cat="0"><div class="mega-menu-item-left"><i>📱</i> Electronics</div> ›</div><div class="mega-menu-item" data-cat="1"><div class="mega-menu-item-left"><i>👗</i> Fashion</div> ›</div><div class="mega-menu-item" data-cat="2"><div class="mega-menu-item-left"><i>💄</i> Beauty</div> ›</div><div class="mega-menu-item" data-cat="3"><div class="mega-menu-item-left"><i>🏠</i> Home & Living</div> ›</div><div class="mega-menu-item" data-cat="4"><div class="mega-menu-item-left"><i>🥕</i> Groceries</div> ›</div><div class="mega-menu-item" data-cat="5"><div class="mega-menu-item-left"><i>📚</i> Books</div> ›</div><div class="mega-menu-item" data-cat="6"><div class="mega-menu-item-left"><i>⚽</i> Sports</div> ›</div><div class="mega-menu-item" data-cat="7"><div class="mega-menu-item-left"><i>🧸</i> Toys & Baby</div> ›</div><div class="mega-menu-item" data-cat="8"><div class="mega-menu-item-left"><i>🚗</i> Automotive</div> ›</div><div class="mega-menu-item" data-cat="9"><div class="mega-menu-item-left"><i>🌿</i> Health</div> ›</div></div><div class="mega-menu-right active"><div class="mega-sub-group"><h5>Mobiles</h5><a href="category.html?cat=electronics">Samsung</a><a href="category.html?cat=electronics">iPhone</a><a href="category.html?cat=electronics">Xiaomi</a></div><div class="mega-sub-group"><h5>Computers</h5><a href="category.html?cat=electronics">Laptops</a><a href="category.html?cat=electronics">Tablets</a></div><div class="mega-sub-group"><h5>Audio & TV</h5><a href="category.html?cat=electronics">Headphones</a><a href="category.html?cat=electronics">Smart TVs</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Men's</h5><a href="category.html?cat=fashion">T-Shirts</a><a href="category.html?cat=fashion">Jeans</a></div><div class="mega-sub-group"><h5>Women's</h5><a href="category.html?cat=fashion">Sarees</a><a href="category.html?cat=fashion">Dresses</a></div><div class="mega-sub-group"><h5>Footwear</h5><a href="category.html?cat=fashion">Shoes</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Skincare</h5><a href="category.html?cat=beauty">Face Wash</a></div><div class="mega-sub-group"><h5>Makeup</h5><a href="category.html?cat=beauty">Lipstick</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Furniture</h5><a href="category.html?cat=home">Sofas</a></div><div class="mega-sub-group"><h5>Kitchen</h5><a href="category.html?cat=home">Appliances</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Groceries</h5><a href="category.html?cat=groceries">All Items</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Books</h5><a href="category.html?cat=books">Academic</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Sports</h5><a href="category.html?cat=sports">Cricket</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Toys</h5><a href="category.html?cat=toys">Action Figures</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Automotive</h5><a href="category.html?cat=automotive">Accessories</a></div></div><div class="mega-menu-right"><div class="mega-sub-group"><h5>Health</h5><a href="category.html?cat=health">Supplements</a></div></div></div></div><div class="nav-links"><a href="index.html" class="nav-link">🏠 Home</a><a href="category.html?cat=flash-sale" class="nav-link nav-link-hot">🔥 Flash Sale</a><a href="categories.html" class="nav-link">📂 All Categories</a><a href="category.html?cat=electronics" class="nav-link">📱 Electronics</a><a href="category.html?cat=fashion" class="nav-link">👗 Fashion</a><a href="category.html?cat=beauty" class="nav-link">💄 Beauty</a><a href="category.html?cat=home" class="nav-link">🏠 Home & Living</a><a href="category.html?cat=groceries" class="nav-link">🥕 Groceries</a><a href="blog.html" class="nav-link">📝 Blog</a></div></div></nav>
+<!-- Page Hero -->
+<div class="page-hero"><div class="container"><div class="page-hero-content"><h1>🛒 My Shopping Cart</h1><div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span class="breadcrumb-current">Shopping Cart</span></div></div></div></div>
+
+<div class="container" style="padding:24px var(--container-padding);">
+  <a href="index.html" class="cart-continue">← Continue Shopping</a>
+
+  <div class="cart-layout" id="cart-page-layout">
+    <!-- Cart Items -->
+    <div>
+      <div class="cart-items-section">
+        <div class="cart-items-header">
+          <h3>Cart Items (<span id="cart-item-count">0</span>)</h3>
+          <button onclick="clearAllCart()" style="font-size:12px;color:var(--danger);cursor:pointer;background:none;border:none;font-weight:600;">🗑️ Clear All</button>
+        </div>
+        <div class="cart-table-header">
+          <span>Product</span>
+          <span>Price</span>
+          <span>Quantity</span>
+          <span>Total</span>
+          <span></span>
+        </div>
+        <div id="cart-full-items">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Saved for Later -->
+      <div class="saved-for-later">
+        <div class="account-card">
+          <div class="account-card-header"><h3>💾 Saved for Later</h3></div>
+          <div class="account-card-body">
+            <div class="cart-row" style="grid-template-columns:2fr 1fr auto;">
+              <div class="cart-product-cell">
+                <div class="cart-product-img"><span>🎧</span></div>
+                <div><div class="cart-product-name">Sony WH-1000XM5 Headphones</div><div class="cart-product-variant">Color: Black</div><div style="color:var(--success);font-size:12px;margin-top:4px;">✅ In Stock</div></div>
+              </div>
+              <div><div class="cart-price">৳18,500</div><div style="font-size:11px;color:var(--text-muted);text-decoration:line-through;">৳37,000</div></div>
+              <button class="btn btn-outline btn-sm" onclick="addToCart({id:'xm5-saved',name:'Sony WH-1000XM5',price:18500,emoji:'🎧'});showToast('Added','Moved to cart!','success')">Move to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Summary -->
+    <div>
+      <div class="order-summary">
+        <div class="order-summary-header"><h3>📋 Order Summary</h3></div>
+        <div class="order-summary-body">
+          <div class="summary-coupon">
+            <h5>🏷️ Apply Coupon</h5>
+            <div class="coupon-row">
+              <input class="coupon-input" placeholder="Enter coupon (try DADAR10)" id="coupon-input-full"/>
+              <button class="btn-apply" onclick="applyCouponFull()">Apply</button>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);">Available: DADAR10 (10% off), WELCOME50 (৳50 off)</div>
+          </div>
+
+          <div id="cart-full-summary">
+            <div class="summary-line"><span>Subtotal:</span><span id="full-subtotal">৳0</span></div>
+            <div class="summary-line"><span>Discount:</span><span id="full-discount" style="color:var(--success);">- ৳0</span></div>
+            <div class="summary-line"><span>Delivery Charge:</span><span id="full-delivery">৳60</span></div>
+            <div class="summary-line"><span>Tax (VAT 5%):</span><span id="full-tax">৳0</span></div>
+            <div class="summary-line total"><span>Total Payable:</span><span id="full-total" style="color:var(--primary);">৳0</span></div>
+          </div>
+
+          <div style="background:var(--bg);border-radius:var(--radius);padding:10px 12px;margin:12px 0;font-size:12px;color:var(--success);display:flex;align-items:center;gap:6px;">
+            🎉 You're saving <strong id="saving-amount">৳0</strong> on this order!
+          </div>
+
+          <button class="btn-checkout" onclick="window.location.href='checkout.html'">
+            🔒 Proceed to Checkout
+          </button>
+          <button style="width:100%;padding:11px;background:white;color:var(--secondary);border:1.5px solid var(--border);border-radius:var(--radius);font-size:13px;font-weight:600;cursor:pointer;margin-top:8px;transition:var(--transition);" onclick="window.location.href='index.html'">
+            ← Continue Shopping
+          </button>
+
+          <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;">
+            <span style="font-size:11px;color:var(--text-muted);">We accept:</span>
+            <span style="font-size:20px;">💳</span>
+            <span style="font-size:20px;">📱</span>
+            <span style="font-size:20px;">🏦</span>
+            <span style="font-size:20px;">💵</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="account-card" style="margin-top:16px;">
+        <div class="account-card-body">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="font-size:20px;">🔒</span><div><strong>Secure Checkout</strong><div style="color:var(--text-muted);">SSL encrypted — your data is safe</div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="font-size:20px;">↩️</span><div><strong>Easy Returns</strong><div style="color:var(--text-muted);">7-day free return policy</div></div></div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:12px;"><span style="font-size:20px;">🚚</span><div><strong>Free Delivery</strong><div style="color:var(--text-muted);">On orders above ৳1000</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- You May Also Like -->
+  <div style="margin-top:32px;">
+    <div class="section-header"><div class="section-title-group"><div class="section-stripe"></div><div class="section-title">💡 You May Also Like</div></div></div>
+    <div class="product-scroll">
+      <div class="product-card" onclick="window.location.href='product.html'" style="min-width:190px;max-width:190px;"><div class="product-card-img"><span>🔌</span></div><div class="product-card-body"><div class="product-brand">Samsung</div><div class="product-name">Samsung 25W Fast Charger</div><div class="product-price-row"><span class="product-price">৳1,800</span></div></div><div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'charger25w',name:'Samsung 25W Charger',price:1800,emoji:'🔌'})">+ Cart</button></div></div>
+      <div class="product-card" onclick="window.location.href='product.html'" style="min-width:190px;max-width:190px;"><div class="product-card-img"><span>📦</span></div><div class="product-card-body"><div class="product-brand">Spigen</div><div class="product-name">Spigen Galaxy A55 5G Case</div><div class="product-price-row"><span class="product-price">৳1,200</span></div></div><div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'case-a55',name:'Spigen A55 Case',price:1200,emoji:'📦'})">+ Cart</button></div></div>
+      <div class="product-card" onclick="window.location.href='product.html'" style="min-width:190px;max-width:190px;"><div class="product-card-img"><span>🔋</span></div><div class="product-card-body"><div class="product-brand">Anker</div><div class="product-name">Anker 20000mAh Power Bank</div><div class="product-price-row"><span class="product-price">৳3,200</span></div></div><div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'anker-pb',name:'Anker Power Bank',price:3200,emoji:'🔋'})">+ Cart</button></div></div>
+      <div class="product-card" onclick="window.location.href='product.html'" style="min-width:190px;max-width:190px;"><div class="product-card-img"><span>🛡️</span></div><div class="product-card-body"><div class="product-brand">Tempered Pro</div><div class="product-name">Galaxy A55 Tempered Glass Screen Protector</div><div class="product-price-row"><span class="product-price">৳350</span></div></div><div class="product-card-footer"><button class="btn-add-cart" onclick="event.stopPropagation();addToCart({id:'tempered-a55',name:'Tempered Glass A55',price:350,emoji:'🛡️'})">+ Cart</button></div></div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="container"><div class="footer-top"><div class="footer-brand"><div class="logo" style="margin-bottom:12px;"><div class="logo-icon">D</div><div class="logo-text"><span class="logo-name">Dadar Shop</span><span class="logo-tagline">Your Trusted Online Marketplace</span></div></div><p class="footer-brand-desc">Bangladesh's most trusted online marketplace. Shop millions of products with guaranteed quality and fast delivery nationwide.</p><div class="footer-social"><a href="#" class="footer-social-btn">f</a><a href="#" class="footer-social-btn">in</a><a href="#" class="footer-social-btn">▶</a><a href="#" class="footer-social-btn">📸</a></div><div class="footer-payment"><p>We Accept</p><div class="footer-payment-icons"><span class="payment-icon">bKash</span><span class="payment-icon">Nagad</span><span class="payment-icon">Rocket</span><span class="payment-icon">VISA</span><span class="payment-icon">Mastercard</span><span class="payment-icon">COD</span></div></div></div><div class="footer-col"><h4>Shop</h4><div class="footer-links"><a href="categories.html">All Categories</a><a href="category.html?cat=electronics">Electronics</a><a href="category.html?cat=fashion">Fashion</a><a href="category.html?cat=beauty">Beauty</a><a href="category.html?cat=home">Home & Living</a><a href="category.html?cat=flash-sale">Flash Sales</a></div></div><div class="footer-col"><h4>Account</h4><div class="footer-links"><a href="account.html">My Account</a><a href="account.html">My Orders</a><a href="wishlist.html">Wishlist</a><a href="tracking.html">Track Order</a><a href="login.html">Login</a><a href="register.html">Register</a></div></div><div class="footer-col"><h4>Help</h4><div class="footer-links"><a href="help.html">Help Center</a><a href="contact.html">Contact Us</a><a href="tracking.html">Track Order</a><a href="help.html#faq">FAQ</a><a href="#">Return Policy</a><a href="#">Privacy Policy</a></div></div><div class="footer-col"><h4>Dadar Shop</h4><div class="footer-links"><a href="about.html">About Us</a><a href="seller.html">Sell on Dadar</a><a href="blog.html">Blog</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Sitemap</a></div></div></div></div><hr class="footer-divider"/><div class="container"><div class="footer-bottom"><p class="copyright">© 2025 Dadar Shop. All Rights Reserved. Made with ❤️ in Bangladesh.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div></footer>
+<nav class="mobile-nav"><div class="mobile-nav-items"><div class="mobile-nav-item" data-href="index.html"><i>🏠</i><span>Home</span></div><div class="mobile-nav-item" data-href="categories.html"><i>📂</i><span>Categories</span></div><div class="mobile-nav-item" data-href="search.html"><i>🔍</i><span>Search</span></div><div class="mobile-nav-item active" onclick="openCart()"><i>🛒</i><span>Cart</span><span class="mobile-cart-count">0</span></div><div class="mobile-nav-item" data-href="account.html"><i>👤</i><span>Account</span></div></div></nav>
+<button class="back-to-top">↑</button>
+
+<script src="js/main.js"></script>
+<script>
+function renderFullCart() {
+  const container = document.getElementById('cart-full-items');
+  const countEl = document.getElementById('cart-item-count');
+  if (!container) return;
+  if (cart.length === 0) {
+    container.innerHTML = `<div class="empty-state"><div class="empty-icon">🛒</div><div class="empty-title">Your cart is empty</div><div class="empty-desc">Looks like you haven't added anything yet.</div><a href="index.html" class="btn btn-primary">Start Shopping</a></div>`;
+    updateSummary(0);
+    if (countEl) countEl.textContent = '0';
+    return;
+  }
+  container.innerHTML = cart.map(item => `
+    <div class="cart-row">
+      <div class="cart-product-cell">
+        <div class="cart-product-img"><span>${item.emoji || '📦'}</span></div>
+        <div><div class="cart-product-name">${item.name}</div>${item.variant ? `<div class="cart-product-variant">${item.variant}</div>` : ''}<button style="color:var(--primary);font-size:11px;background:none;border:none;cursor:pointer;margin-top:4px;" onclick="moveToSaved('${item.id}')">💾 Save for Later</button></div>
+      </div>
+      <div><div class="cart-price">৳${item.price.toLocaleString()}</div></div>
+      <div><div class="cart-qty-control"><button class="cart-qty-btn" onclick="updateCartQty('${item.id}','${item.variant||''}', -1);renderFullCart()">−</button><span class="cart-qty-val">${item.qty}</span><button class="cart-qty-btn" onclick="updateCartQty('${item.id}','${item.variant||''}', 1);renderFullCart()">+</button></div></div>
+      <div><div class="cart-price">৳${(item.price * item.qty).toLocaleString()}</div></div>
+      <div><button class="cart-remove" onclick="removeFromCart('${item.id}','${item.variant||''}');renderFullCart()">🗑️</button></div>
+    </div>`).join('');
+  const subtotal = cart.reduce((s,i) => s + i.price*i.qty, 0);
+  updateSummary(subtotal);
+  if (countEl) countEl.textContent = cart.length;
+}
+
+function updateSummary(subtotal) {
+  const discount = 0;
+  const delivery = subtotal > 1000 ? 0 : 60;
+  const tax = Math.round(subtotal * 0.05);
+  const total = subtotal - discount + delivery + tax;
+  document.getElementById('full-subtotal').textContent = '৳' + subtotal.toLocaleString();
+  document.getElementById('full-discount').textContent = '- ৳' + discount.toLocaleString();
+  document.getElementById('full-delivery').textContent = delivery === 0 ? 'FREE' : '৳' + delivery;
+  document.getElementById('full-tax').textContent = '৳' + tax.toLocaleString();
+  document.getElementById('full-total').textContent = '৳' + total.toLocaleString();
+  document.getElementById('saving-amount').textContent = '৳' + (discount + (subtotal > 1000 ? 60 : 0)).toLocaleString();
+}
+
+function clearAllCart() {
+  if (!confirm('Are you sure you want to clear all cart items?')) return;
+  cart.length = 0;
+  saveCart();
+  updateCartCount();
+  renderFullCart();
+}
+
+function moveToSaved(id) { showToast('Saved','Item saved for later.','info'); }
+
+function applyCouponFull() {
+  const code = document.getElementById('coupon-input-full').value.trim().toUpperCase();
+  if (code === 'DADAR10') showToast('Coupon Applied!','10% discount applied.','success');
+  else if (code === 'WELCOME50') showToast('Coupon Applied!','৳50 off applied.','success');
+  else showToast('Invalid Coupon','This code is not valid.','error');
+}
+
+renderFullCart();
+
+// Pre-load demo item if cart empty
+if (cart.length === 0) {
+  addToCart({id:'samsung-a55',name:'Samsung Galaxy A55 5G 256GB',price:28999,emoji:'📱',variant:'256GB Awesome Navy'});
+  addToCart({id:'xm5',name:'Sony WH-1000XM5',price:18500,emoji:'🎧',variant:'Black'});
+  renderFullCart();
+}
+</script>
+</body>
+</html>
